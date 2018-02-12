@@ -10,5 +10,6 @@ Potential APIs: Eventbrite, Yelp, Weather, Waze/Uber?, Twitter, MBTA
 
 Bucket List Application
 
-Input destination 
+Input: destination 
+
 Output: potential travel details/itinerary ? Pictures from Instagram, information from wikipedia… ect.
