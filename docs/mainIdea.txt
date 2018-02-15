@@ -1,6 +1,6 @@
 Main Idea:
 
-For this project, we would create a web app that A web app that creates a “night out experience” based on a users tweets.
-The user would pick a price point for their night out budget, and from there be provided a series of choices to create an experience. 
-Some options would include an interface to look at events happening within the users location, an interface to view various food options, and an interface to view possible transportation options.  
-We imagine we could use twitter as our third party auth api, and potentially Eventbrite, Fandango, Yelp, and Uber Movement as the apis to grab local events/movies/restaurants/transportation to recommend to people. 
+For this project, we would create A web app that creates a “night out experience”.
+The user would go into the app with a budget/price point in mind for their night out, and from there be provided a series of choices to create an experience. 
+Some options would include an interface to look at events happening within the users location, an interface to view various food options, along with an interface to view possible transportation options.  
+We plan to use twitter/facebook/ or google as our third party authorization api, and potentially Eventbrite, Fandango, Yelp, and Uber Movement as the apis to grab local events/movies/restaurants/transportation to serve as recommendations for our users. 
