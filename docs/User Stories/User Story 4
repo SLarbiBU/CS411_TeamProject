@@ -1,0 +1,14 @@
+User Story 4: 
+
+As a new user who just logged in, I want to enter basic personal information for my account.
+
+After logging in via Twitter (Login User Story), I will be brought to my homepage/dashboard. This will present basic information
+like my age, my hometown, my interests, etc. At first, if there is no information to display, I will be presented with two options. I can
+either manually enter my personal information or I can attempt to retrieve information from my twitter bio. If i choose to manually enter
+information, I will provided with a form like interface that I can fill in whatever information I wish to provide. After entering this information, 
+I will click a submit button and my profile will be updated. If successful, I will be presented with the updated bio and a banner saying updates
+successful. If unsuccessful, then I will be presented with a banner saying the update has failed. 
+If I choose to import information from twitter, I will be brought to a new page to give permission to access information from my twitter profile. If declined, 
+I will just be brought back to my homepage. If accepted, info will be scraped from Twitter and will autofill the same form as mentioned above. 
+I will be provided the option to update this information if necessary. Upon satisfaction with this data, I will be prompted to submit the changes 
+and the same success and failure actions as above will occur. 
