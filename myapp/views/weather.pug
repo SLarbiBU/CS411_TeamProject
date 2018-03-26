@@ -2,11 +2,13 @@ extends layout
 
 block content
     h1 Current Weather Section
-    h2  Current Weather in #{weather.name}: #{weather.weather.main}
+    h2  Current Weather in #{weather.name}: #{weather.weather[0].main}
  
     ul
+        li Description: #{weather.weather[0].description}
         li Current Temp: #{weather.main.temp} F
         li Wind: #{weather.wind.speed} MPH
+        li Cloudiness: #{weather.clouds.all}%
 
 
 
