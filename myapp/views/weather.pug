@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1 Current Weather Section
+    h2  Current Weather in #{weather.name}: #{weather.weather.main}
+ 
+    ul
+        li Current Temp: #{weather.main.temp} F
+        li Wind: #{weather.wind.speed} MPH
+
+
+
