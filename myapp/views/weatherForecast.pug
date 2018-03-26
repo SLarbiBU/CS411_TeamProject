@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1  Weather Forecast Section
+
+    h2  Weather Forecast in #{forecast.city.name}:
+
+    ul
+        for point in forecast.list
+            li Time/Date: #{point.dt_txt}
+            li Temp: #{point.main.temp} F
+            li Weather Type: #{point.weather[0].main}
+            li
+               
+
+
+

@@ -1,0 +1,49 @@
+
+Running the app after pulling down the latest copy from github (assuming you have latest version of node):
+1) I think we'll need to run npm install in the project directory in order to make sure we all have the proper
+packages locally - packages are included in gitignore and arent pushed to github
+2) Use the commands shown in https://expressjs.com/en/starter/generator.html to actually run the app
+
+
+Building the App:
+
+1) Got the most recent stable version of node (I used 8.10.0)
+    -website has instructions: www.hostingadvice.com/how-to/update-node-js-latest-version/
+    -essentially forwards you to this website: https://nodejs.org/en/download/
+2) Used express generator to make skeleton app with pug view engine
+    -just followed tutorial here: https://expressjs.com/en/starter/generator.html
+3) Made a .gitignore file 
+4) Made a config.js file for API keys and other config info
+
+
+Adding to the App:
+
+Changing app.js:
+1) To add a router, follow the example around line 10
+    var weatherRouter = require('./routes/weather');
+2) Then need to use the router, follow the example around line 
+    app.use('/weather', weatherRouter);
+
+Making a new router:
+1) Create new file in the routes folder
+    -make the name whatever you used for step 1 in changing app.js
+2) Basically just follow the examples in the routes folder already
+    -when getting the response from the api, send it to a new pug template to be rendered
+
+Making a new pug template:
+1) Make new .pug file in the views folder
+2) Format the page using pug
+
+
+
+Git Flow: 
+git status
+-should be on branch cote
+git pull origin master
+git checkout -b newBranch
+---- do work -------
+git add *
+git commit -m "message"
+git checkout cote
+git merge newBranch
+git push
