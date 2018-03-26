@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1 Get Your Current Weather
+    form(method='POST' action='weather/current')
+        div
+            span Your Current City
+            input(type="text", name="city")
+        div.actions
+            input(type="submit", value="Get Current Weather")
+
+    br
+    br
+    br
+
+    h1 Get Your Weather Forecast
+    form(method='POST' action='weather/forecast')
+        div
+            span Your Current City
+            input(type="text", name="city")
+        div.actions
+            input(type="submit", value="Get Weather Forecast")

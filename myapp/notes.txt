@@ -46,4 +46,5 @@ git add *
 git commit -m "message"
 git checkout cote
 git merge newBranch
+git branch -d newBranch
 git push

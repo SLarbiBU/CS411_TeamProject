@@ -3,14 +3,21 @@ var router = express.Router();
 var request = require("request");
 var config = require("../config");
 
+router.get('/', function(req, res, next) {
+    res.render('weatherForm', {});
+});
+
 /* GET home page. */
-router.get('/current', function(req, res, next) {
+router.post('/current', function(req, res, next) {
   
+  var city = req.body.city;
+  city = city + ',us';
+
   var options = { 
     method: 'GET',
     url: 'https://api.openweathermap.org/data/2.5/weather',
     qs: 
-     { q: 'Boston,us',
+     { q: city,
        units: 'imperial',
        mode: 'json',
        APPID: config.weatherAPI }
@@ -24,13 +31,16 @@ router.get('/current', function(req, res, next) {
   }); 
 });
 
-router.get('/forecast', function(req, res, next) {
+router.post('/forecast', function(req, res, next) {
   
+  var city = req.body.city;
+  city = city + ',us';
+
     var options = { 
       method: 'GET',
       url: 'https://api.openweathermap.org/data/2.5/forecast',
       qs: 
-       { q: 'Boston,us',
+       { q: city,
          units: 'imperial',
          mode: 'json',
          APPID: config.weatherAPI }

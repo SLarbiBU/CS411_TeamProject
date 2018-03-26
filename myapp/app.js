@@ -43,3 +43,6 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+
+//start up command: set DEBUG=myapp:* & npm start
