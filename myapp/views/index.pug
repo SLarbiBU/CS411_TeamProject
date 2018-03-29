@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1= title
-  p Welcome to UBER #{title}
+  p Welcome to #{title}
 
-  if uberprice
-    ul
-      li THIS #{uberprice.products[2].price_details.base + uberprice.products[2].price_details.cost_per_distance * google.routes[0].legs[0].distance.value/1609.344}
-  else if google
-    li #{google.routes[0].legs[0].distance.value/1609.344}
+  form(method='GET' action='/uber')
+
+
+    div.actions
+      input(type="submit", value="Go to Uber")
