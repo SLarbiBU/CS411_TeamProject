@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    h1 Get Your Current Weather
+    form(method='GET' action='uber')
+        div
+            span Your Current City
+            input(type= "number", name="a")
+            input(type="number", name="b")
+            input(type="number", name="x")
+            input(type="number", name="y")
+        div.actions
+            input(type="submit", value="Get Start and Stopping Lat/Long")
+
+    br
+    br
+    br
+
+    h1 Get Your Weather Forecast
+    form(method='POST' action='weather/forecast')
+        div
+            span Your Current City
+            input(type="text", name="city")
+        div.actions
+            input(type="submit", value="Get Weather Forecast")
