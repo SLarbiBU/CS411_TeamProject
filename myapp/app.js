@@ -62,3 +62,4 @@ module.exports = app;
 
 
 //start up command: set DEBUG=myapp:* & npm start
+//angular start up: ng serve --open
