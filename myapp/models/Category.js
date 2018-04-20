@@ -42,7 +42,7 @@ module.exports.saveFavoriteCategory = function(callback, category){
     category.save(callback);
 }
 
-//function to save the favorite category object
+//function to save the favorite category objects
 module.exports.saveFavoriteCategories = function(callback, categories){
     FavoriteCategory.insertMany(categories, callback);
 }
@@ -53,7 +53,7 @@ module.exports.getFavoriteCategoriesByUsername = function(callback, username){
     FavoriteCategory.find(query, callback);
 }
 
-//function to get the User object based on the username
+//function to delete the favorite category based on name and username
 module.exports.deleteFavoriteCategory = function(callback, name, username){
     const query = {name: name, username: username};
     console.log(name);

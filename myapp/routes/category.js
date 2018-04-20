@@ -2,19 +2,18 @@ var express = require('express');
 var router = express.Router();
 var FavoriteCategory = require('../models/Category');
 var request = require("request");
+var config = require('../config');
 
-//route used to save the new event
-//the event is in the body of the request
+//route used to save the new favorite categories
+//the categories are an array  in the body of the request
 router.post("/saveFavoriteCategories", function(req, res, next){
-    //makes event object using request body
+    //populates categories array
     var categories = [];
     
     for (i = 0; i < req.body.categories.length; i++){
         let newCategory = new FavoriteCategory(req.body.categories[i]);
         categories.push(newCategory)
     }
-
-    console.log(categories);
     
     //attempts to save the categories, passing in the new categories array
     FavoriteCategory.saveFavoriteCategories(function(err, categories){
@@ -29,7 +28,7 @@ router.post("/saveFavoriteCategories", function(req, res, next){
     }, categories);
 });
 
-//route used to get all of the favorite categories
+//route used to get all of the favorite categories for the user
 //username is the parameter in the request
 //example: localhost:3000/events/getFavoriteCategoriesByUsername/mwcote97
 router.get("/getFavoriteCategoriesByUsername/:username", function(req, res, next) {
@@ -44,12 +43,12 @@ router.get("/getFavoriteCategoriesByUsername/:username", function(req, res, next
     }, username);
 });
 
-/* get event brite main categories */
+/* get event brite main categories directly from the api*/
 router.post('/getEventbriteCategories', function(req, res, next) {
   
     var options = { method: 'GET',
         url: 'https://www.eventbriteapi.com/v3/categories/',
-        qs: { token: 'NFYOWMHHAT2MAUY2DZVC' }
+        qs: { token: config.eventbriteKey }
     };
 
     request(options, function (error, response, body) {
@@ -59,7 +58,8 @@ router.post('/getEventbriteCategories', function(req, res, next) {
     });
 });
 
-/* get event brite sub categories */
+/* get event brite sub categories directly from the api, uses the categoryID from body
+   to specify which main category*/
 router.post('/getEventbriteSubcategories', function(req, res, next) {
 
     //ID of the main category which subcategories fall under
@@ -68,7 +68,7 @@ router.post('/getEventbriteSubcategories', function(req, res, next) {
 
     var options = { method: 'GET',
     url: customURL,
-    qs: { token: 'NFYOWMHHAT2MAUY2DZVC' }
+    qs: { token: config.eventbriteKey }
     };
 
     request(options, function (error, response, body) {
@@ -79,7 +79,38 @@ router.post('/getEventbriteSubcategories', function(req, res, next) {
     });
 });
 
-//delete a favorite category given its name
+//route to get categories as options during event search
+//will either go to db to get saved categories or fetch all of the categories from event brite
+//useCache = true: get user favorite categories, useCache = false: get all categories from the api
+router.post('/getCategories', function (req, res, next){
+    var useCache = req.body.useCache;
+    var username = req.body.username;
+
+    //if using the cache, then get the favorite categories from the db
+    if (useCache){
+        FavoriteCategory.getFavoriteCategoriesByUsername(function(err, categories){
+            if(err){
+              throw err;
+            }
+            res.json(categories);
+          }, username);
+    }
+    //otherwise, get all categories from event brite
+    else {
+        var options = { method: 'GET',
+        url: 'https://www.eventbriteapi.com/v3/categories/',
+        qs: { token: config.eventbriteKey }
+        };
+
+        request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+            var response = JSON.parse(body);
+            res.json(response);
+        });
+    }
+});
+
+//delete a favorite category given its name and the username of the user
 router.delete("/deleteFavoriteCategory/:name/:username", function(req, res, next) {
     var name = req.params.name;
     var username = req.params.username;
