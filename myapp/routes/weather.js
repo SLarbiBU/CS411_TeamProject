@@ -8,9 +8,9 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET home page. */
-router.post('/current', function(req, res, next) {
-  
-  var city = req.body.city;
+router.get('/current/:city', function(req, res, next) {
+  console.log("hit");
+  var city = req.params.city;
   city = city + ',us';
 
   var options = { 
@@ -27,7 +27,8 @@ router.post('/current', function(req, res, next) {
     if (error) throw new Error(error);
   
     //console.log(body);
-    res.render('weather', { title: 'Express',weather: JSON.parse(body)});
+    //res.render('weather', { title: 'Express',weather: JSON.parse(body)});
+    res.json(JSON.parse(body));
   }); 
 });
 
@@ -50,7 +51,8 @@ router.post('/forecast', function(req, res, next) {
       if (error) throw new Error(error);
     
       //console.log(body);
-      res.render('weatherForecast', { title: 'Express',forecast: JSON.parse(body)});
+      //res.render('weatherForecast', { title: 'Express',forecast: JSON.parse(body)});
+      res.json(JSON.parse(body));
     }); 
   });
 
