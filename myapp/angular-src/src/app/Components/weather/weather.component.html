@@ -1,0 +1,16 @@
+<p><strong>Current Location (City): &nbsp;  </strong> &nbsp;
+  <input type="string" name="city" [(ngModel)]="city">
+</p>
+  <br>
+  <button (click)="getWeather()">Get Weather</button>
+
+  <div *ngIf="weather != null">
+      <h2>Main Weather: {{mainWeather}}</h2>
+      <h2>Description: {{description}}</h2>
+      <h2>Temperature: {{temp}}</h2>
+      <h2>Min Temperature: {{minTemp}}</h2>
+      <h2>Max Temperature: {{maxTemp}}</h2>
+      <h2>Humidity %: {{humidity}}</h2>
+      <h2>Wind Speed: {{windSpeed}}</h2>
+  </div>
+  

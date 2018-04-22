@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+const cors = require("cors");
 var config = require('./config');
 //add routers when created - should have new router for each different api category
 var indexRouter = require('./routes/index');
@@ -34,6 +35,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
+app.options('*', cors());
 
 //add the router that was created above
 app.use('/', indexRouter);
