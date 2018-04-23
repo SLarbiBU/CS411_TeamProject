@@ -19,8 +19,8 @@ export class EventsService {
     return this.http.get<Event[]>("http://localhost:3000/events/getSavedEventsByUsername/" + username);
   }
 
-  deleteEvent(id){
-    return this.http.delete("http://localhost:3000/events/deleteEvent/" + id);
+  deleteEvent(id):Observable<Event>{
+    return this.http.delete<Event>("http://localhost:3000/events/deleteEvent/" + id);
   }
 
 }

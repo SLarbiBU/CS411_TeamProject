@@ -1,16 +1,48 @@
-<p><strong>Current Location (City): &nbsp;  </strong> &nbsp;
-  <input type="string" name="city" [(ngModel)]="city">
-</p>
-  <br>
-  <button (click)="getWeather()">Get Weather</button>
-
-  <div *ngIf="weather != null">
-      <h2>Main Weather: {{mainWeather}}</h2>
-      <h2>Description: {{description}}</h2>
-      <h2>Temperature: {{temp}}</h2>
-      <h2>Min Temperature: {{minTemp}}</h2>
-      <h2>Max Temperature: {{maxTemp}}</h2>
-      <h2>Humidity %: {{humidity}}</h2>
-      <h2>Wind Speed: {{windSpeed}}</h2>
+ <!-- following angular.io tutorial on displaying lists: https://angular.io/tutorial/toh-pt2 -->
+ <div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <div class = "row justify-content-center">
+                  <button (click)="getWeather()">Get Current Weather</button>
+                  <button (click)="getWeatherForecast()">Get Weather Forecast</button>
+                  <button (click)="incrementTime()" *ngIf="displayCurrent == 0 && displayForecast == 1" [disabled]="forecastIndex == forecastLength ? true : false">Go Farther in Future</button>
+                  <button (click)="decrementTime()" *ngIf="displayCurrent == 0 && displayForecast == 1" [disabled]="forecastIndex == 0 ? true : false">Go Back in Past</button>
+                </div>
+                <br><br>
+                <div *ngIf="displayCurrent == 1">
+                  <div class="row justify-content-center">
+                    <div class="col-md-2">
+                        <strong>Main Weather:</strong> <p>{{mainWeather}}</p>
+                        <strong>Description:</strong> <p>{{description}}</p>
+                        <strong>Temperature:</strong> <p>{{temp}} *F</p>
+                        <strong>Min Temperature:</strong> <p>{{minTemp}} *F</p>
+                        <strong>Max Temperature:</strong> <p>{{maxTemp}} *F</p>
+                        <strong>Humidity %:</strong> <p>{{humidity}}</p>
+                        <strong>Wind Speed:</strong> <p>{{windSpeed}} MPH</p>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="displayForecast == 1">
+                  <div class="row justify-content-center">
+                    <div class="col-md-2">
+                        <strong>Main Weather:</strong> <p>{{forecastArray[forecastIndex].mainWeather}}</p>
+                        <strong>Description:</strong> <p>{{forecastArray[forecastIndex].description}}</p>
+                        <strong>Temperature:</strong> <p>{{forecastArray[forecastIndex].temp}} *F</p>
+                        <strong>Min Temperature:</strong> <p>{{forecastArray[forecastIndex].minTemp}} *F</p>
+                        <strong>Max Temperature:</strong> <p>{{forecastArray[forecastIndex].maxTemp}} *F</p>
+                        <strong>Humidity %:</strong> <p>{{forecastArray[forecastIndex].humidity}}</p>
+                        <strong>Wind Speed:</strong> <p>{{forecastArray[forecastIndex].windSpeed}} MPH</p>
+                        <strong>Date: </strong> <p>{{getWeekday(forecastArray[forecastIndex].time)}} {{getMonth(forecastArray[forecastIndex].time)}} {{getDateNumber(forecastArray[forecastIndex].time)}}, {{getYear(forecastArray[forecastIndex].time)}}: {{getHours(forecastArray[forecastIndex].time)}}:{{getMinutes(forecastArray[forecastIndex].time)}} {{getDayTime(forecastArray[forecastIndex].time)}}</p>
+                    </div>
+                  </div>
+               </div>
+            </div>
+        </div>
+        <br><br>
+    </div>
   </div>
+ 
+
+  
   

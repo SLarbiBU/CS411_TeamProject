@@ -16,7 +16,7 @@
                   <strong>Address: </strong> <p>{{event.address}}</p>
                   <br>
                   <a target="_blank" class="btn btn-info" [href]="event.url">Get More Info</a>
-                  <button type="button" class="btn btn-danger" (click)="deleteEvent(event._id)">Remove Event</button>
+                  <button type="button" class="btn btn-danger" (click)="deleteEvent(event._id, event.title)">Remove Event</button>
               </div>
           </div>
           <br><br>

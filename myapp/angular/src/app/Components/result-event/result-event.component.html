@@ -1,10 +1,31 @@
-<h1>Event Details</h1>
+<br><rb></rb>
+<h2 class="text-center">Event Details</h2>
+<br><br>
 
-<br><br><br>
-<h3>Eventbrite Details</h3>
+    <!-- following angular.io tutorial on displaying lists: https://angular.io/tutorial/toh-pt2 -->
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+          <div class="card">
+              <div class="card-body">
+                  <strong>Event Title: </strong> <p>{{event.title}}</p>
+                  <strong>Event Description: </strong> <p>{{event.description}}</p>
+                  <strong>Event Category: </strong> <p>{{event.category}}</p>
+                  <strong>Start Time: </strong> <p>{{getWeekday(event.startTime)}} {{getMonth(event.startTime)}} {{getDateNumber(event.startTime)}}, {{getYear(event.startTime)}}: {{getHours(event.startTime)}}:{{getMinutes(event.startTime)}} {{getDayTime(event.startTime)}}</p>
+                  <strong>End Time: </strong> <p>{{getWeekday(event.endTime)}} {{getMonth(event.endTime)}} {{getDateNumber(event.endTime)}}, {{getYear(event.endTime)}}: {{getHours(event.endTime)}}:{{getMinutes(event.endTime)}} {{getDayTime(event.endTime)}}</p>
+                  <strong>Venue: </strong> <p>{{event.venue}}</p>
+                  <strong>Address: </strong> <p>{{event.address}}</p>
+                  <br>
+                  <a target="_blank" class="btn btn-info" [href]="event.url">Get More Info</a>
+                  <!-- <button type="button" class="btn btn-danger" (click)="deleteEvent(event._id, event.title)">Remove Event</button> -->
+              </div>
+          </div>
+          <br><br>
+      </div>
+    </div>
 
-<br><br><br>
-<h3>Weather Details</h3>
+<br>
+<h2 class="text-center">Weather Details</h2>
+<br>
 <app-weather></app-weather>
 
 <br><br><br>

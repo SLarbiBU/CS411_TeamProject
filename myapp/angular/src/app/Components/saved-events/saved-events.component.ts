@@ -12,9 +12,7 @@ export class SavedEventsComponent implements OnInit {
   constructor(private eventsService: EventsService) { }
 
   username: string = "mwcote97";
-  events2: any;
   events: Event[];
-  returnedEvent: Event;
 
   ngOnInit() {
     this.eventsService.getSavedEvents(this.username).subscribe(events => {
@@ -22,14 +20,12 @@ export class SavedEventsComponent implements OnInit {
     })
   }
 
-  public deleteEvent(id){
+  public deleteEvent(id, title: string){
     this.eventsService.deleteEvent(id).subscribe(event => {
-      var returnedEvent: any = event;
-      this.returnedEvent = returnedEvent;
+      alert("You have successfully removed the event from your saved events list!");
       for (var i = 0; i < this.events.length; i++){
-        if (this.events[i].title == this.returnedEvent.title){
+        if (!this.events[i].title.localeCompare(title)){
           this.events.splice(i,1);
-          console.log("splice");
         }
       }
     })
