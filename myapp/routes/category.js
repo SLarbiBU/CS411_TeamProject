@@ -1,3 +1,8 @@
+/*
+Routing: followed the tutorial/documentation at: https://expressjs.com/en/guide/routing.html
+                                                 https://expressjs.com/en/starter/basic-routing.html
+*/
+
 var express = require('express');
 var router = express.Router();
 var FavoriteCategory = require('../models/Category');
@@ -16,14 +21,15 @@ router.post("/saveFavoriteCategories", function(req, res, next){
     }
     
     //attempts to save the categories, passing in the new categories array
-    FavoriteCategory.saveFavoriteCategories(function(err, categories){
+    //followed https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
+    FavoriteCategory.saveFavoriteCategories(function(err, favoriteCategories){
         if(err){
             //sends json response to client
-            res.json({success: false, msg: err});
+            res.json({success: false, error: err});
         }
         else{
-            //sends json response to client
-            res.json({success: true, msg: "Saved favorite categories"});
+            //sends json response to client with saved categories
+            res.json(favoriteCategories);
         }
     }, categories);
 });
@@ -35,17 +41,19 @@ router.get("/getFavoriteCategoriesByUsername/:username", function(req, res, next
     //gets username from parameter
     var username = req.params.username;
     //tries to get saved categories from db, sends back json of categories if successful
-    FavoriteCategory.getFavoriteCategoriesByUsername(function(err, categories){
+    FavoriteCategory.getFavoriteCategoriesByUsername(function(err, favoriteCategories){
       if(err){
-        throw err;
+        //sends json response to client
+        res.json({success: false, error: err});
       }
-      res.json(categories);
+        res.json(favoriteCategories);
     }, username);
 });
 
 /* get event brite main categories directly from the api*/
 router.post('/getEventbriteCategories', function(req, res, next) {
   
+    //code derived from postman
     var options = { method: 'GET',
         url: 'https://www.eventbriteapi.com/v3/categories/',
         qs: { token: config.eventbriteKey }
@@ -66,6 +74,7 @@ router.post('/getEventbriteSubcategories', function(req, res, next) {
     var categoryID = req.body.categoryID;
     var customURL = 'https://www.eventbriteapi.com/v3/categories/' + categoryID + "/";
 
+    //code derived from postman
     var options = { method: 'GET',
     url: customURL,
     qs: { token: config.eventbriteKey }
@@ -90,9 +99,9 @@ router.post('/getCategories', function (req, res, next){
     if (useCache){
         FavoriteCategory.getFavoriteCategoriesByUsername(function(err, categories){
             if(err){
-              throw err;
+                res.json({success: false, error: err});
             }
-            res.json(categories);
+                res.json(categories);
           }, username);
     }
     //otherwise, get all categories from event brite
@@ -116,9 +125,9 @@ router.delete("/deleteFavoriteCategory/:name/:username", function(req, res, next
     var username = req.params.username;
     FavoriteCategory.deleteFavoriteCategory(function(err, category){
       if(err){
-        res.json({success: false, msg: "Failed to delete"});
+        res.json({success: false, error: err});
       }
-        res.json({success: true, msg: "Sucessfully deleted"});
+        res.json(category);
     }, name, username);
 });
 

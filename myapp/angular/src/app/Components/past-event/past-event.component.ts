@@ -9,16 +9,15 @@ import {Event} from '../../Event';
 })
 export class PastEventComponent implements OnInit {
 
+  //using services to abstract http call - as seen in https://angular.io/tutorial/toh-pt4
   constructor(private eventsService: EventsService) { }
 
   username: string = "mwcote97";
-  events2: any;
   events: Event[];
 
   ngOnInit() {
     this.eventsService.getPastEvents(this.username).subscribe(events => {
-      this.events2 = events;
-      this.events = this.events2;
+      this.events = events;
     })
   }
 

@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 /* GET home page. */
 router.get('/current/:city', function(req, res, next) {
-  console.log("hit");
+
   var city = req.params.city;
   city = city + ',us';
 
@@ -26,8 +26,6 @@ router.get('/current/:city', function(req, res, next) {
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
   
-    //console.log(body);
-    //res.render('weather', { title: 'Express',weather: JSON.parse(body)});
     res.json(JSON.parse(body));
   }); 
 });
@@ -49,9 +47,7 @@ router.post('/forecast', function(req, res, next) {
     
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
-    
-      //console.log(body);
-      //res.render('weatherForecast', { title: 'Express',forecast: JSON.parse(body)});
+      
       res.json(JSON.parse(body));
     }); 
   });

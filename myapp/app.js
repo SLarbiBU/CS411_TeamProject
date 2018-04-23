@@ -6,6 +6,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 const cors = require("cors");
 var config = require('./config');
+
 //add routers when created - should have new router for each different api category
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -15,7 +16,7 @@ var categoryRouter = require('./routes/category');
 
 var app = express();
 
-//setting up the database
+//setting up the database - followed https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
 var mongoDB = config.dbURL;
 mongoose.connect(mongoDB);
 

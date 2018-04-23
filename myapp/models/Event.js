@@ -55,8 +55,15 @@ var EventSchema = new Schema({
         type: String,
         default: ""
     },
-    //what kind of event it is - example: conference, concert, talk, etc
-    format: {
+    longitude:{
+        type: String,
+        default: ""
+    },
+    latitude:{
+        type: String, 
+        default: ""
+    },
+    image_url:{
         type: String,
         default: ""
     },
@@ -66,6 +73,10 @@ var EventSchema = new Schema({
         default: ""
     }
 });
+
+/*
+changes: get rid of format, add longitude and latitude, image_url
+*/
 
 var Event = module.exports = mongoose.model('Event', EventSchema);
 
@@ -84,4 +95,9 @@ module.exports.getSavedEventsByUsername = function(callback, username){
 module.exports.getPastEventsByUsername = function(callback, username){
     const query = {username: username, saved: false};
     Event.find(query, callback).sort({date: -1});
+}
+
+module.exports.deleteEvent =  function(callback, id){
+    const query = {_id: id};
+    Event.remove(query, callback);
 }

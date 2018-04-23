@@ -10,10 +10,10 @@ router.post("/saveUser", function(req, res, next){
   //attempts to save the user in the db, returns user if successful
   User.saveUser(function(err, user){
     if(err){
-        res.json({success: false, msg: "Failed to save user"});
+      res.json({success: false, error: err});
     }
     else{
-        res.json({success: true, user: user});
+      res.json(user);
     }
   }, newUser);
 });
@@ -27,7 +27,7 @@ router.get("/getUserByUsername/:username", function(req, res, next){
   //gets the user by their username from the db
   User.getUserByUsername(function(err, user){
     if (err){
-      res.json(err);
+      res.json({success: false, error: err});
     }
     else{
       res.json(user);
@@ -45,10 +45,10 @@ router.put("/updateUser/", function(req, res, next) {
   //attempts to update user in database
   User.updateUser(function(err, user){
     if(err){
-      res.json({success: false, msg: "Failed to update user"});
+      res.json({success: false, error: err});
     }
     else{
-      res.json({success: true, msg: "User updated"});
+      res.json(user);
     }
   }, username, updatedUser, {});
 });
