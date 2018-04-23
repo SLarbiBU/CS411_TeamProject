@@ -12,4 +12,8 @@ export class WeatherService {
     return this.http.get("http://localhost:3000/weather/current/" + city);
   }
 
+  getWeatherForecast(city){
+    return this.http.get("http://localhost:3000/weather/forecast/" + city);
+  }
+
 }

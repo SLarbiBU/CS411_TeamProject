@@ -30,9 +30,9 @@ router.get('/current/:city', function(req, res, next) {
   }); 
 });
 
-router.post('/forecast', function(req, res, next) {
+router.get('/forecast/:city', function(req, res, next) {
   
-  var city = req.body.city;
+  var city = req.params.city;
   city = city + ',us';
 
     var options = { 
