@@ -57,6 +57,6 @@ module.exports.getUserByUsername = function(callback, username){
 
 //function to update the user with the given username
 module.exports.updateUser = function(callback, username, updatedUser, options){
-    var query = {username: username};
+    const query = {username: username};
     User.findOneAndUpdate(query, updatedUser, options, callback)
 }

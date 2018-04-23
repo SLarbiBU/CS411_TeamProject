@@ -12,11 +12,11 @@ router.post("/saveEvent", function(req, res, next){
     Event.saveEvent(function(err, event){
         if(err){
             //sends json response to client
-            res.json({success: false, msg: "Failed to save event"});
+            res.json({success: false, error: err});
         }
         else{
             //sends json response to client
-            res.json({success: true, event: event});
+            res.json(event);
         }
     }, newEvent);
 });
@@ -30,9 +30,9 @@ router.get("/getSavedEventsByUsername/:username", function(req, res, next) {
     //tries to get saved events from db, sends back json of events if successful
     Event.getSavedEventsByUsername(function(err, events){
       if(err){
-        throw err;
+        res.json({success: false, error: err});
       }
-      res.json(events);
+        res.json(events);
     }, username);
 });
 
@@ -41,10 +41,20 @@ router.get("/getPastEventsByUsername/:username", function(req, res, next) {
     var username = req.params.username;
     Event.getPastEventsByUsername(function(err, events){
       if(err){
-        throw err;
+        res.json({success: false, error: err});
       }
-      res.json(events);
+        res.json(events);
     }, username);
+});
+
+router.delete("/deleteEvent/:id", function(req, res, next) {
+    var id = req.params.id;
+    Event.deleteEvent(function(err, events){
+      if(err){
+        res.json({success: false, error: err});
+      }
+        res.json(events);
+    }, id);
 });
 
 module.exports = router;

@@ -8,6 +8,8 @@ export class Event {
     saved: boolean;
     venue: string;
     address: string;
-    format: string;
+    longitude: string;
+    latitude: string;
+    image_url: string;
     category: string;
   }

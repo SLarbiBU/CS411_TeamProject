@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 
 //Subcategory Schema - not its own model, simply used in the FavoriteCategory Schema
 //meant to represent the favorite subcategories among a favorite category for a user
+//sub documents: http://mongoosejs.com/docs/subdocs.html
 var SubcategorySchema = new Schema({
     //the name of the subcategory- example: "Wine" when category is "Food and Drink"
     name: {
@@ -20,6 +21,7 @@ var SubcategorySchema = new Schema({
 //schema for the eventbrite categories used to classify the events
 //meant to represent only the favorite categories which the user has specified during account initialization
 //unique identifier for the schema is the combination of username and catID
+//Schemas: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
 var FavoriteCategorySchema = new Schema({
     //username of user who favorited the category - example: "mwcote97"
     username: {
@@ -45,6 +47,10 @@ var FavoriteCategorySchema = new Schema({
 
 var FavoriteCategory = module.exports = mongoose.model('FavoriteCategories', FavoriteCategorySchema);
 
+//using different mongodb calls to manipulate the db
+//http://mongoosejs.com/docs/api.html#Model - lists different calls/commands
+
+
 //function to save the favorite category object
 module.exports.saveFavoriteCategory = function(callback, category){
     category.save(callback);
@@ -64,6 +70,5 @@ module.exports.getFavoriteCategoriesByUsername = function(callback, username){
 //function to delete the favorite category based on name and username
 module.exports.deleteFavoriteCategory = function(callback, name, username){
     const query = {name: name, username: username};
-    console.log(name);
     FavoriteCategory.remove(query, callback);
 }
