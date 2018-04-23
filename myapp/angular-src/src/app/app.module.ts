@@ -14,6 +14,7 @@ import {WeatherService} from './Services/weather-service.service';
 import {EventsService} from './Services/events.service';
 import { PastEventComponent } from './Components/past-event/past-event.component';
 import { SavedEventsComponent } from './Components/saved-events/saved-events.component';
+import { ResultEventComponent } from './Components/result-event/result-event.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { SavedEventsComponent } from './Components/saved-events/saved-events.com
     WeatherComponent,
     PastEventComponent,
     SavedEventsComponent,
+    ResultEventComponent,
   ],
   imports: [
     BrowserModule,
