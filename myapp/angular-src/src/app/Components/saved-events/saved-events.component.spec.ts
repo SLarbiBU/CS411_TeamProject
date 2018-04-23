@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SavedEventListComponent } from './saved-event-list.component';
+import { SavedEventsComponent } from './saved-events.component';
 
-describe('SavedEventListComponent', () => {
-  let component: SavedEventListComponent;
-  let fixture: ComponentFixture<SavedEventListComponent>;
+describe('SavedEventsComponent', () => {
+  let component: SavedEventsComponent;
+  let fixture: ComponentFixture<SavedEventsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SavedEventListComponent ]
+      declarations: [ SavedEventsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SavedEventListComponent);
+    fixture = TestBed.createComponent(SavedEventsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

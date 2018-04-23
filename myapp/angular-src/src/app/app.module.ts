@@ -6,21 +6,24 @@ import {HttpModule, Headers} from "@angular/http";
 
 import { AppComponent } from './app.component';
 import { EventSearchComponent } from './Components/event-search/event-search.component';
-import { SavedEventListComponent } from './Components/saved-event-list/saved-event-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { WeatherComponent } from './Components/weather/weather.component';
 
 import {WeatherService} from './Services/weather-service.service';
+import {EventsService} from './Services/events.service';
+import { PastEventComponent } from './Components/past-event/past-event.component';
+import { SavedEventsComponent } from './Components/saved-events/saved-events.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EventSearchComponent,
-    SavedEventListComponent,
     ProfileComponent,
     WeatherComponent,
+    PastEventComponent,
+    SavedEventsComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import {WeatherService} from './Services/weather-service.service';
     HttpClientModule,
     HttpModule
   ],
-  providers: [WeatherService],
+  providers: [WeatherService, EventsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
