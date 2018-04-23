@@ -16,6 +16,8 @@ import { PastEventComponent } from './Components/past-event/past-event.component
 import { SavedEventsComponent } from './Components/saved-events/saved-events.component';
 import { ResultEventComponent } from './Components/result-event/result-event.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { ResultEventComponent } from './Components/result-event/result-event.com
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    NgbModule.forRoot()
   ],
   providers: [WeatherService, EventsService],
   bootstrap: [AppComponent]
