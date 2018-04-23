@@ -67,6 +67,10 @@ var EventSchema = new Schema({
     }
 });
 
+/*
+changes: get rid of format, add longitude and latitude, image_url
+*/
+
 var Event = module.exports = mongoose.model('Event', EventSchema);
 
 //save the newEvent object into the db as a new document in the events collection
