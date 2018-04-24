@@ -8,12 +8,12 @@ export class WeatherService {
   constructor(private http: HttpClient) { }
 
 
-  getCurrentWeather(city){
-    return this.http.get("http://localhost:3000/weather/current/" + city);
+  getCurrentWeather(longitude, latitude){
+    return this.http.get("http://localhost:3000/weather/current/" + longitude + "/" + latitude);
   }
 
-  getWeatherForecast(city){
-    return this.http.get("http://localhost:3000/weather/forecast/" + city);
+  getWeatherForecast(longitude, latitude){
+    return this.http.get("http://localhost:3000/weather/forecast/" + longitude + "/" + latitude);
   }
 
 }

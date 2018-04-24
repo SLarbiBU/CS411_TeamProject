@@ -8,16 +8,17 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET home page. */
-router.get('/current/:city', function(req, res, next) {
+router.get('/current/:longitude/:latitude', function(req, res, next) {
 
-  var city = req.params.city;
-  city = city + ',us';
+  var longitude = req.params.longitude;
+  var latitude = req.params.latitude;
 
   var options = { 
     method: 'GET',
     url: 'https://api.openweathermap.org/data/2.5/weather',
     qs: 
-     { q: city,
+     { lat: latitude,
+       lon: longitude,
        units: 'imperial',
        mode: 'json',
        APPID: config.weatherAPI }
@@ -30,16 +31,17 @@ router.get('/current/:city', function(req, res, next) {
   }); 
 });
 
-router.get('/forecast/:city', function(req, res, next) {
+router.get('/forecast/:longitude/:latitude', function(req, res, next) {
   
-  var city = req.params.city;
-  city = city + ',us';
+  var longitude = req.params.longitude;
+  var latitude = req.params.latitude;
 
     var options = { 
       method: 'GET',
       url: 'https://api.openweathermap.org/data/2.5/forecast',
       qs: 
-       { q: city,
+       { lat: latitude,
+         lon: longitude,
          units: 'imperial',
          mode: 'json',
          APPID: config.weatherAPI }
