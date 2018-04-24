@@ -24,12 +24,18 @@ export class WeatherComponent implements OnInit {
   humidity: number;
   windSpeed: number;
 
+  eventDate: Date = new Date('April 25, 2018 09:00:00');
+  venueLongitude: string = "4.91316489999997";
+  venueLatitude: string = "52.352276";
+  eventWeather: any = null;
+  noEventWeather: number = 1;
+
   displayForecast: number= 0;
   displayCurrent: number = 0;
-
+  displayEventWeather: number = 0;
 
   ngOnInit() {
-
+    console.log(this.eventDate);
   }
 
   ngOnChanges(changes: SimpleChanges){
@@ -38,13 +44,69 @@ export class WeatherComponent implements OnInit {
     }
   }
 
+  public getEventWeather(){
+    if (this.forecastLength == 0){
+      this.weatherService.getWeatherForecast(this.venueLongitude, this.venueLatitude).subscribe(data => {
+        this.forecast = data;
+        this.forecastLength = this.forecast.list.length;
+        for (var i = 0; i < this.forecast.list.length; i++){
+          var increment = {
+            mainWeather: this.forecast.list[i].weather[0].main,
+            description: this.forecast.list[i].weather[0].description,
+            temp: this.forecast.list[i].main.temp,
+            minTemp: this.forecast.list[i].main.temp_min,
+            maxTemp: this.forecast.list[i].main.temp_max,
+            humidity: this.forecast.list[i].main.humidity,
+            windSpeed: this.forecast.list[i].wind.speed,
+            time: new Date(this.forecast.list[i].dt_txt)
+          };
+  
+          this.forecastArray.push(increment);
+        }
+        this.forecastIndex = 0;
+        var roundedDate: Date = new Date();
+        roundedDate.setFullYear(this.eventDate.getFullYear());
+        roundedDate.setMonth(this.eventDate.getMonth());
+        roundedDate.setDate(this.eventDate.getDate());
+        roundedDate.setHours(this.eventDate.getHours() - (this.eventDate.getHours() % 3));
+        for (var j = 0; j < this.forecastArray.length; j++){
+          if (this.forecastArray[j].time.getDate() == roundedDate.getDate() && this.forecastArray[j].time.getHours() == roundedDate.getHours()){
+            this.eventWeather = this.forecastArray[j];
+            this.noEventWeather = 0;
+          }
+        }
+        this.displayCurrent = 0;
+        this.displayForecast = 0;
+        this.displayEventWeather = 1;
+      })
+    }
+    else{
+      var roundedDate: Date = new Date();
+      roundedDate.setFullYear(this.eventDate.getFullYear());
+      roundedDate.setMonth(this.eventDate.getMonth());
+      roundedDate.setDate(this.eventDate.getDate());
+      roundedDate.setHours(this.eventDate.getHours() - (this.eventDate.getHours() % 3));
+      for (var j = 0; j < this.forecastArray.length; j++){
+        if (this.forecastArray[j].time.getDate() == roundedDate.getDate() && this.forecastArray[j].time.getHours() == roundedDate.getHours()){
+          this.eventWeather = this.forecastArray[j];
+          this.noEventWeather = 0;
+        }
+      }
+      this.displayCurrent = 0;
+      this.displayForecast = 0;
+      this.displayEventWeather = 1;
+    }
+  }
+
   public getWeather(){
     if (this.weather != null){
       this.displayForecast = 0;
+      this.forecastIndex = 0;
       this.displayCurrent = 1;
+      this.displayEventWeather = 0;
     }
     else{
-      this.weatherService.getCurrentWeather(this.city).subscribe(data => {
+      this.weatherService.getCurrentWeather(this.venueLongitude, this.venueLatitude).subscribe(data => {
         this.weather = data;
         this.mainWeather = this.weather.weather[0].main;
         this.description = this.weather.weather[0].description;
@@ -54,7 +116,9 @@ export class WeatherComponent implements OnInit {
         this.humidity = this.weather.main.humidity;
         this.windSpeed = this.weather.wind.speed;
         this.displayForecast = 0;
+        this.forecastIndex = 0;
         this.displayCurrent = 1;
+        this.displayEventWeather = 0;
       });
     }
   }
@@ -75,9 +139,10 @@ export class WeatherComponent implements OnInit {
     if (this.forecastArray.length != 0){
       this.displayForecast = 1;
       this.displayCurrent = 0;
+      this.displayEventWeather = 0;
     }
     else{
-      this.weatherService.getWeatherForecast(this.city).subscribe(data => {
+      this.weatherService.getWeatherForecast(this.venueLongitude, this.venueLatitude).subscribe(data => {
         this.forecast = data;
         this.forecastLength = this.forecast.list.length;
         for (var i = 0; i < this.forecast.list.length; i++){
@@ -97,6 +162,7 @@ export class WeatherComponent implements OnInit {
         this.forecastIndex = 0;
         this.displayForecast = 1;
         this.displayCurrent = 0;
+        this.displayEventWeather = 0;
       })
     }
   }
@@ -186,3 +252,18 @@ export class WeatherComponent implements OnInit {
   }
 }
 
+/*
+
+<div class="row justify-content-center">
+                    <div class="col-md-2">
+                        <strong>Main Weather:</strong> <p>{{mainWeather}}</p>
+                        <strong>Description:</strong> <p>{{description}}</p>
+                        <strong>Temperature:</strong> <p>{{temp}} *F</p>
+                        <strong>Min Temp:</strong> <p>{{minTemp}} *F</p>
+                        <strong>Max Temp:</strong> <p>{{maxTemp}} *F</p>
+                        <strong>Humidity %:</strong> <p>{{humidity}}</p>
+                        <strong>Wind Speed:</strong> <p>{{windSpeed}} MPH</p>
+                    </div>
+                  </div>
+
+                */
