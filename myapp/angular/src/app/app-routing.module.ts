@@ -13,7 +13,8 @@ const routes: Routes = [
   {path: 'weather', component: WeatherComponent},
   {path: 'pastEvents', component: PastEventComponent},
   {path: 'savedEvents', component: SavedEventsComponent},
-  {path: 'resultEvent', component: ResultEventComponent}
+  {path: 'resultEvent', component: ResultEventComponent},
+  {path: '', redirectTo: '/eventSearch', pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {WeatherComponent} from '../weather/weather.component';
 import {Event} from '../../Event';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-result-event',
@@ -9,7 +11,9 @@ import {Event} from '../../Event';
 })
 export class ResultEventComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+    private location: Location
+  ) { }
 
   event = 
   {
@@ -29,6 +33,9 @@ export class ResultEventComponent implements OnInit {
   };
 
   ngOnInit() {
+  }
+  public goBack(): void {
+    this.location.back();
   }
 
   public getWeekday(date:any): string {

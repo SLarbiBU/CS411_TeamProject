@@ -16,6 +16,7 @@ import { SavedEventsComponent } from './Components/saved-events/saved-events.com
 import { ResultEventComponent } from './Components/result-event/result-event.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     PastEventComponent,
     SavedEventsComponent,
     ResultEventComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
