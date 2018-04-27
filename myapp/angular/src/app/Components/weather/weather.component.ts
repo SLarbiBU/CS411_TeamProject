@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import {WeatherService} from '../../Services/weather-service.service';
 
 @Component({
@@ -10,7 +10,12 @@ export class WeatherComponent implements OnInit {
 
   constructor(private weatherService: WeatherService) { }
 
-  city: String = "Boston";
+
+  @Input() eventDate: Date; //= new Date('April 25, 2018 09:00:00');
+  @Input() venueLongitude: string; //= "4.91316489999997";
+  @Input() venueLatitude: string; //= "52.352276";
+  
+  
   weather: any;
   forecast: any;
   forecastArray: any[] = [];
@@ -24,9 +29,6 @@ export class WeatherComponent implements OnInit {
   humidity: number;
   windSpeed: number;
 
-  eventDate: Date = new Date('April 25, 2018 09:00:00');
-  venueLongitude: string = "4.91316489999997";
-  venueLatitude: string = "52.352276";
   eventWeather: any = null;
   noEventWeather: number = 1;
 
