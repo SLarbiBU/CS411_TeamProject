@@ -14,6 +14,7 @@ var weatherRouter = require('./routes/weather');
 var pricePointRouter = require('./routes/pricePoint');
 var eventRouter = require('./routes/events');
 var categoryRouter = require('./routes/category');
+var uberRouter = require('./routes/uber');
 
 var app = express();
 
@@ -47,6 +48,7 @@ app.use('/weather', weatherRouter);
 app.use('/pricePoint', pricePointRouter);
 app.use('/events', eventRouter);
 app.use('/categories', categoryRouter);
+app.use('/uber', uberRouter);
 
 
 // catch 404 and forward to error handler
