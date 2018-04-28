@@ -1,0 +1,27 @@
+<br><br>
+<h2 class="text-center">View All Your Past Events!</h2>
+<br><br><br>
+<div *ngIf="events != []">
+    <!-- following angular.io tutorial on displaying lists: https://angular.io/tutorial/toh-pt2 -->
+    <div class="row justify-content-center" *ngFor="let event of events">
+      <div class="col-md-8">
+          <div class="card">
+              <div class="card-body">
+                  <strong>Event Title: </strong> <p>{{event.title}}</p>
+                  <strong>Event Description: </strong> <p>{{event.description}}</p>
+                  <strong>Event Category: </strong> <p>{{event.category}}</p>
+                  <strong>Start Time: </strong> <p>{{getWeekday(event.startTime)}} {{getMonth(event.startTime)}} {{getDateNumber(event.startTime)}}, {{getYear(event.startTime)}}: {{getHours(event.startTime)}}:{{getMinutes(event.startTime)}} {{getDayTime(event.startTime)}}</p>
+                  <strong>End Time: </strong> <p>{{getWeekday(event.endTime)}} {{getMonth(event.endTime)}} {{getDateNumber(event.endTime)}}, {{getYear(event.endTime)}}: {{getHours(event.endTime)}}:{{getMinutes(event.endTime)}} {{getDayTime(event.endTime)}}</p>
+                  <strong>Venue: </strong> <p>{{event.venue}}</p>
+                  <strong>Address: </strong> <p>{{event.address}}</p>
+                  <br>
+                  <a target="_blank" class="btn btn-info" [href]="event.url">Get More Info</a>
+                  <!-- <button type="button" class="btn btn-danger" (click)="deleteEvent(event._id, event.title)">Remove Event</button> -->
+              </div>
+          </div>
+          <br><br>
+      </div>
+    </div>
+</div>
+
+

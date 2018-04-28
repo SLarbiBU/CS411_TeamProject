@@ -1,0 +1,11 @@
+We chose the Node.js/Express.js frameworks for the backend of our web app. The three mains stacks/languages we considered were Node, Flask, and Go. 
+If we were to use Go, the benefit would be performance and customizability of the server, since Go performs well when used to write code for servers
+and concurrent tasks. However, none of the team members have knowledge of Go, so the learning curve would have been very steep. Furthermore, there
+are not many frameworks in Go currently available which have gained popularity and have many resources. Therefore, we determined that using Go
+would have been too complex and time consuming given our timeline. 
+We ultimately chose Node/Express over Flask due to familiarity with the stack compared to Flask. Several members of the group had worked with Node
+and had completed projects using Node. While most team members knew Python, we decided that the extra time that would be required to learn the Flask
+framework would be tough to fit into the schedule. Furthermore, Node/Express have many different tutorials online which would quickly fill any
+gaps in our knowledge. Finally, we decided it would be best to use the same language on the backend and frontend. We figured that it would be easier
+for the backend and front end to communicate with each other if they were written in the same language. Furthermore, using one language would reduce
+how much time would be spent on reviewing syntax and things of that nature. 

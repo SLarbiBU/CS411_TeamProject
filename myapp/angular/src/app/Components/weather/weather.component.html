@@ -1,0 +1,78 @@
+ <!-- following angular.io tutorial on displaying lists: https://angular.io/tutorial/toh-pt2 -->
+ <div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <div class = "row justify-content-center">
+                  <button (click)="getWeather()" class="btn btn-primary">Current Weather</button>
+                  <button (click)="getEventWeather()" class="btn btn-secondary">Event Weather</button>
+                  <button (click)="getWeatherForecast()" class="btn btn-success">Weather Forecast</button>
+                </div>
+                <br><br>
+                <div *ngIf="displayCurrent == 1">
+                  <div class="row justify-content-center">
+                    <div class="col-md-2 text-center">
+                        <strong>Main Weather:</strong> <p>{{mainWeather}}</p>
+                        <strong>Description:</strong> <p>{{description}}</p>
+                        <strong>Temperature:</strong> <p>{{temp}} *F</p>
+                        <strong>Max Temp:</strong> <p>{{maxTemp}} *F</p>
+                        <strong>Min Temp:</strong> <p>{{minTemp}} *F</p>
+                        <strong>Humidity %:</strong> <p>{{humidity}}</p>
+                        <strong>Wind Speed:</strong> <p>{{windSpeed}} MPH</p>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="displayForecast == 1">
+                  <div class="row justify-content-center">
+                    <div class="col-md-2 text-center">
+                        <strong>Main Weather:</strong> <p>{{forecastArray[forecastIndex].mainWeather}}</p>
+                        <strong>Description:</strong> <p>{{forecastArray[forecastIndex].description}}</p>
+                        <strong>Temperature:</strong> <p>{{forecastArray[forecastIndex].temp}} *F</p>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center">
+                      <div class="col-md-2 text-center">
+                          <button class="btn btn-danger" (click)="decrementTime()" *ngIf="displayCurrent == 0 && displayForecast == 1" [disabled]="forecastIndex == 0 ? true : false">Backward</button>
+                      </div>
+                      <div class="col-md-2 text-center">
+                          <strong>Min Temp:</strong> <p>{{forecastArray[forecastIndex].minTemp}} *F</p>
+                      </div>
+                      <div class="col-md-2 text-center">
+                          <button class="btn btn-danger" (click)="incrementTime()" *ngIf="displayCurrent == 0 && displayForecast == 1" [disabled]="forecastIndex == forecastLength ? true : false">Forward</button>
+                      </div>
+                    </div>
+                  <div class="row justify-content-center">
+                      <div class="col-md-2 text-center">
+                        <strong>Max Temp:</strong> <p>{{forecastArray[forecastIndex].maxTemp}} *F</p>
+                        <strong>Humidity %:</strong> <p>{{forecastArray[forecastIndex].humidity}}</p>
+                        <strong>Wind Speed:</strong> <p>{{forecastArray[forecastIndex].windSpeed}} MPH</p>
+                        <strong>Date: </strong> <p>{{getWeekday(forecastArray[forecastIndex].time)}} {{getMonth(forecastArray[forecastIndex].time)}} {{getDateNumber(forecastArray[forecastIndex].time)}}: {{getHours(forecastArray[forecastIndex].time)}}:{{getMinutes(forecastArray[forecastIndex].time)}} {{getDayTime(forecastArray[forecastIndex].time)}}</p>
+                      </div>
+                  </div>
+                </div>
+               <div *ngIf="displayEventWeather == 1">
+                  <div class="row justify-content-center">
+                      <div *ngIf="noEventWeather == 0" class="col-md-2 text-center">
+                            <strong>Main Weather:</strong> <p>{{eventWeather.mainWeather}}</p>
+                            <strong>Description:</strong> <p>{{eventWeather.description}}</p>
+                            <strong>Temperature:</strong> <p>{{eventWeather.temp}} *F</p>
+                            <strong>Min Temp:</strong> <p>{{eventWeather.minTemp}} *F</p>
+                            <strong>Max Temp:</strong> <p>{{eventWeather.maxTemp}} *F</p>
+                            <strong>Humidity %:</strong> <p>{{eventWeather.humidity}}</p>
+                            <strong>Wind Speed:</strong> <p>{{eventWeather.windSpeed}} MPH</p>
+                            <strong>Time: </strong><p>{{getWeekday(eventWeather.time)}} {{getMonth(eventWeather.time)}} {{getDateNumber(eventWeather.time)}}: {{getHours(eventWeather.time)}}:{{getMinutes(eventWeather.time)}} {{getDayTime(eventWeather.time)}}</p>
+                        </div>
+                        <div *ngIf="noEventWeather == 1">
+                          <h2>No Weather Data Available During Time of the Event</h2>
+                        </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <br><br>
+    </div>
+  </div>
+ 
+
+  
+  
