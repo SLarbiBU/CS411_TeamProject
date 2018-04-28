@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1 Find Events this Weekend 
+    form(method='POST' action='pricePoint/paid')
+        div
+            span Pick Your Price Point
+        div.actions
+            input(type="submit", value="$$$")
+            
+            
+    form(method='POST' action='pricePoint/free')
+        div.actions
+            input(type="submit", value="$")

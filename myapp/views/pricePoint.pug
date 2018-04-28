@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    h1 This Weekend's Events in Your Price Range
+    
+    ul
+        h2 Name: #{pricePoint.events[0].name.text}
+        li Description: #{pricePoint.events[0].description.text}
+        
+        h2 Name: #{pricePoint.events[1].name.text}
+        li Description: #{pricePoint.events[1].description.text}
+        
+        h2 Name: #{pricePoint.events[2].name.text}
+        li Description: #{pricePoint.events[2].description.text}
+        
+        h2 Name: #{pricePoint.events[3].name.text}
+        li Description: #{pricePoint.events[3].description.text}
+        
+        h2 Name: #{pricePoint.events[3].name.text}
+        li Description: #{pricePoint.events[3].description.text}

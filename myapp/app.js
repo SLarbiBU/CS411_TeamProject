@@ -11,6 +11,7 @@ var config = require('./config');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var weatherRouter = require('./routes/weather');
+var pricePointRouter = require('./routes/pricePoint');
 var eventRouter = require('./routes/events');
 var categoryRouter = require('./routes/category');
 
@@ -43,8 +44,10 @@ app.options('*', cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/weather', weatherRouter);
+app.use('/pricePoint', pricePointRouter);
 app.use('/events', eventRouter);
 app.use('/categories', categoryRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -67,3 +70,4 @@ module.exports = app;
 
 //start up command: set DEBUG=myapp:* & npm start
 //angular start up: ng serve --open
+
