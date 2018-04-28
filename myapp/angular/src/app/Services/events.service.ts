@@ -23,4 +23,15 @@ export class EventsService {
     return this.http.delete<Event>("http://localhost:3000/events/deleteEvent/" + id);
   }
 
+  getSearchEvents(location, kindEvent,isFree, Paid, isToday, isTomorrow, isWeekend, isThisWeek, isNextWeek){
+    var url = "https://www.eventbriteapi.com/v3/events/search/?token=";
+    var token = "NFYOWMHHAT2MAUY2DZVC";
+    url = url + token;
+    url = url + "&q=" + kindEvent;
+    url = url + "&start_date.keyword=" + ((isToday) ? "today" : (isTomorrow) ? "tomorrow" : (isWeekend) ? "this_weekend" : (isThisWeek) ? "this_week" : "next_week");
+    url = url + "&location.address=" + location;
+    url = url + "&expand=venue,category";
+    return this.http.get(url);
+  }
+
 }
