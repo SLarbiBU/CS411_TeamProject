@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EventsService} from '../../Services/events.service';
 import {Event} from '../../Event';
+import {UserService} from '../../Services/user.service';
 
 @Component({
   selector: 'app-saved-events',
@@ -9,12 +10,14 @@ import {Event} from '../../Event';
 })
 export class SavedEventsComponent implements OnInit {
 
-  constructor(private eventsService: EventsService) { }
+  constructor(private eventsService: EventsService,
+              private userService: UserService) { }
 
-  username: string = "mwcote97";
+  username: string;
   events: Event[];
 
   ngOnInit() {
+    this.username = this.userService.getUsername();
     this.eventsService.getSavedEvents(this.username).subscribe(events => {
       this.events = events;
     })

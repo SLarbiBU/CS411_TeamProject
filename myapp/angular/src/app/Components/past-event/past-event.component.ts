@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EventsService} from '../../Services/events.service';
 import {Event} from '../../Event';
+import {UserService} from '../../Services/user.service';
 
 @Component({
   selector: 'app-past-event',
@@ -10,12 +11,14 @@ import {Event} from '../../Event';
 export class PastEventComponent implements OnInit {
 
   //using services to abstract http call - as seen in https://angular.io/tutorial/toh-pt4
-  constructor(private eventsService: EventsService) { }
+  constructor(private eventsService: EventsService,
+    private userService: UserService) { }
 
-  username: string = "mwcote97";
+  username: string;
   events: Event[];
 
   ngOnInit() {
+    this.username = this.userService.getUsername();
     this.eventsService.getPastEvents(this.username).subscribe(events => {
       this.events = events;
     })
