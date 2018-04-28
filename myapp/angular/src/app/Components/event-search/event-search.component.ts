@@ -84,17 +84,8 @@ export class EventSearchComponent implements OnInit {
   }
 
   //following tutorial for routing: https://angular.io/tutorial/toh-pt5
-  public getDetails() {
-    console.log(this.location);
-    console.log(this.kindEvent);
-    console.log(this.isFree);
-    console.log(this.isPaid);
-    console.log(this.isToday);
-    console.log(this.isTomorrow);
-    console.log(this.isWeekend);
-    console.log(this.isThisWeek);
-    console.log(this.isNextWeek);
-    this.eventDataService.changeEvent(this.event);
+  public getEventDetails(event: Event) {
+    this.eventDataService.changeEvent(event);
     this.router.navigate(['resultEvent']);
   }
 
