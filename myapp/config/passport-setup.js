@@ -64,7 +64,19 @@ passport.use(
 
                     username: profile.displayName,
 
-                    thumbnail: profile._json.image.url
+                    thumbnail: profile._json.image.url,
+
+                    address: "",
+
+                    city: "",
+
+                    state: "",
+
+                    zipcode: "",
+
+                    interests: [],
+
+                    updated: false
 
                 }).save().then((newUser) => {
 
