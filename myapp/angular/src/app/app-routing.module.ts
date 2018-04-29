@@ -16,12 +16,17 @@ const routes: Routes = [
     children: [
       {path: 'eventSearch', component: EventSearchComponent},
       {path: 'resultEvent', component: ResultEventComponent},
+      {path: 'savedEvents', component: SavedEventsComponent},
+      {path: 'pastEvents', component: PastEventComponent},
+      {path: "profile", component: ProfileComponent},
       {path: '', redirectTo: 'eventSearch', pathMatch: 'full'}
     ]
   },
   {path: 'login', component: HomeComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
+
+//<a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
