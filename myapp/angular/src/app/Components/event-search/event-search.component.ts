@@ -58,6 +58,7 @@ export class EventSearchComponent implements OnInit {
   }
 
   public getEvents(){
+  this.eventArray = [];
     this.eventService.getSearchEvents(this.location, this.kindEvent,this.isFree, this.isPaid, this.isToday, this.isTomorrow, this.isWeekend, this.isThisWeek, this.isNextWeek).subscribe(eventData => {
       this.eventData = eventData;
       //console.log(this.eventData);
