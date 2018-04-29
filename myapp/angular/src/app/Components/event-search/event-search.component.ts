@@ -52,6 +52,9 @@ export class EventSearchComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.userService.getUsername();
+    this.eventDataService.currentEventArray.subscribe(eventArray => this.eventArray = eventArray);
+    this.eventDataService.currentLocation.subscribe(location => this.location = location);
+    this.eventDataService.currentTerm.subscribe(term => this.kindEvent = term);
   }
 
   public getEvents(){
@@ -79,7 +82,9 @@ export class EventSearchComponent implements OnInit {
         //console.log(eventInstance);
         this.eventArray.push(eventInstance);
       }
-      //console.log(this.eventArray);
+      this.eventDataService.changeEventArray(this.eventArray);
+      this.eventDataService.changeLocation(this.location);
+      this.eventDataService.changeTerm(this.kindEvent);
     })
   }
 
