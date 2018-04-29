@@ -19,7 +19,7 @@ const passport = require('passport');
 router.get('/logout', (req, res) => {
 
     // handle with passport
-
+    
     req.logout();
 
     res.redirect('http://localhost:4200');
