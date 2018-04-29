@@ -4,67 +4,67 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+    
 <!--===============================================================================================-->
 </head>
 <body>
 
-	<div class="container-contact100">
-		
-		<button class="contact100-btn-show">
-          
-			<i class="fa fa-car" aria-hidden="true"></i>
-		</button>
+	<div class="container">
 
-		<div class="wrap-contact100">
-			<button class="contact100-btn-hide">
-				<i class="fa fa-close" aria-hidden="true"></i>
-			</button>
+        <div class="row header">
+            <h1>Search &nbsp;</h1>
+              <h3>Find events that fit your budget</h3>
+        </div>
+        
 
-				<span class="contact100-form-title">
-					Find an Event
-				</span>
-                <form action="results.html" method="GET">
-				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
-					<span class="label-input100">Where Are You Looking?</span>
-					<input [(ngModel)]="location" class="input100" type="text" name="city" placeholder="City">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-					<span class="label-input100">What Kind of Event?</span>
-					<input [(ngModel)]="kindEvent" class="input100" type="text" name="term" placeholder="Keyword">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input" data-validate = "Message is required">
-					<span class="label-input100">What Your Price Point?</span><br>
-					<input [(ngModel)]="isPaid" type="checkbox" name="pricePoint" value=true/>$$$
-                    <input [(ngModel)]="isFree" type="checkbox" name="pricePoint" value=true/>$<br>
-					<span class="focus-input100"></span>
-				</div>
+		<div class="row body">
+                <form action="#">
+                <ul>
+                <li>
                 
-                <div class="wrap-input100 validate-input" data-validate = "Message is required">
-					<span class="label-input100">When?</span><br>
-					<input [(ngModel)]="isToday" type="checkbox" name="when" value=true/>today
-                    <input [(ngModel)]="isTommorow" type="checkbox" name="when" value=true/>tomorrow
+                    <p class="left">
+                        <label for="pricePoint">What's your budget?</label>
+                        <input [(ngModel)]="isPaid" type="checkbox" name="pricePoint" value=true/>$$$
+                        <input [(ngModel)]="isFree" type="checkbox" name="pricePoint" value=true/>$<br>
+                    </p>
 
-                    <input [(ngModel)]="isWeekend" type="checkbox" name="when" value=true/>this weekend
-    
-                    <input [(ngModel)]="isThisWeek" type="checkbox" name="when" value=true/>this week
-    
-                    <input [(ngModel)]="isNextWeek" type="checkbox" name="when" value=true/>next week<br>
-					<span class="focus-input100"></span>
-				</div>
+					<p class="pull-right">
+                        <label for="city">Where are you looking?</label>
+                        <input [(ngModel)]="location" class="input100" type="text" name="city" placeholder="City">     
+                    </p>
+                    </li>
 
-				<div class="container-contact100-form-btn">
-					<button (click)="getEvents()" class="contact100-form-btn">
+				<li>
+					<p>
+                        <label for="kindEvent">What kind of event? </label>
+                        <input [(ngModel)]="kindEvent" class="input100" type="text" name="term" placeholder="Keyword">
+                    </p>
+                    </li>
+                    
+                   
+                
+                
+                    <li><div class="divider"></div></li>
+                        <li>
+                            <label for="When">When</label>
+                            <input [(ngModel)]="isToday" type="checkbox" name="when" value=true/>today
+                            <input [(ngModel)]="isTommorow" type="checkbox" name="when" value=true/>tomorrow
+
+                            <input [(ngModel)]="isWeekend" type="checkbox" name="when" value=true/>this weekend
+    
+                            <input [(ngModel)]="isThisWeek" type="checkbox" name="when" value=true/>this week
+    
+                            <input [(ngModel)]="isNextWeek" type="checkbox" name="when" value=true/>next week<br>
+                        </li>
+                    
+
+				<li>
+					<button (click)="getEvents()" class="btn btn-submit" type="submit" value="Submit">
 						<span>
 							Submit
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 						</span>
 					</button>
-				</div>
+                    </li></ul>
 			</form>
 
 		</div>
@@ -72,7 +72,7 @@
 
 
 
-  <div id="dropDownSelect1"></div>
+ 
   
   <br><br><br>
 <div *ngIf="eventArray != []">
@@ -95,10 +95,10 @@
 </div>
 
 <!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
 
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<script src="/js/main.js"></script>
 
 
 
