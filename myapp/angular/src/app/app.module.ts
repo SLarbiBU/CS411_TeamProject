@@ -13,9 +13,11 @@ import {WeatherService} from './Services/weather-service.service';
 import {EventsService} from './Services/events.service';
 import {EventDataService} from './Services/event-data.service';
 import {UserService} from './Services/user.service';
+import {UberService} from './Services/uber-service.service';
 import { PastEventComponent } from './Components/past-event/past-event.component';
 import { SavedEventsComponent } from './Components/saved-events/saved-events.component';
 import { ResultEventComponent } from './Components/result-event/result-event.component';
+import { UberComponent} from './Components/uber/uber.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
@@ -31,6 +33,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
     SavedEventsComponent,
     ResultEventComponent,
     DashboardComponent,
+    UberComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
     HttpClientModule,
     NgbModule.forRoot()
   ],
-  providers: [WeatherService, EventsService, EventDataService,UserService],
+  providers: [WeatherService, EventsService, EventDataService, UserService, UberService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

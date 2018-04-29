@@ -12,7 +12,7 @@ import {Event} from "../../Event";
 })
 export class EventSearchComponent implements OnInit {
 
-  event : Event = 
+  /*event : Event = 
   {
     venue: "GoDataDriven",
     address: "Wibautstraat 202, 1091 GS Amsterdam",
@@ -27,7 +27,7 @@ export class EventSearchComponent implements OnInit {
     startTime: new Date("2018-05-28T13:00:00.000Z"),
     endTime: new Date("2018-05-28T22:00:00.000Z"),
     saved: true
-  };
+  };*/
 
   location: string = "";
   kindEvent: string = "";
