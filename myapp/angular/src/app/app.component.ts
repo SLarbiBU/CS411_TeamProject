@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(private userService: UserService){}
 
   ngOnInit(){
-    this.userService.saveUsername('mwcote97');
+    //this.userService.saveUsername('mwcote97');
   }
 }
 

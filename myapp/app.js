@@ -6,6 +6,10 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 const cors = require("cors");
 var config = require('./config');
+const keys = require('./config/keys');
+const cookieSession = require('cookie-session'); //incryption for user data
+const passportSetup = require('./config/passport-setup');
+const passport = require('passport');
 
 //add routers when created - should have new router for each different api category
 var indexRouter = require('./routes/index');
@@ -15,6 +19,7 @@ var pricePointRouter = require('./routes/pricePoint');
 var eventRouter = require('./routes/events');
 var categoryRouter = require('./routes/category');
 var uberRouter = require('./routes/uber');
+var authRouter = require('./routes/oAuth');
 
 var app = express();
 
@@ -33,6 +38,23 @@ db.once('open', function(){
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+//cookie to be sent to browser with user information
+// manages user session on the website which helps decide whether a user is logged in or not
+app.use(cookieSession({
+  maxAge: 24 * 60 * 60 * 1000,//age of the cookie is for a day in milliseconds in this case
+  //24 hours * 60 mins per hour * 60 seconds per min * 1000ms per sec
+  keys: [keys.session.cookieKey]
+}));
+
+//initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+//connect to mongoDB
+/*mongoose.connect(keys.mongodb.dbURI, () => {
+  console.log('connected to mongodb 2');
+});*/
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -49,6 +71,7 @@ app.use('/pricePoint', pricePointRouter);
 app.use('/events', eventRouter);
 app.use('/categories', categoryRouter);
 app.use('/uber', uberRouter);
+app.use('/auth', authRouter);
 
 
 // catch 404 and forward to error handler
