@@ -6,15 +6,20 @@ import {WeatherComponent} from './Components/weather/weather.component';
 import {PastEventComponent} from  './Components/past-event/past-event.component';
 import {SavedEventsComponent} from  './Components/saved-events/saved-events.component';
 import {ResultEventComponent} from  './Components/result-event/result-event.component';
+import {BodyComponent} from './Components/body/body.component';
+import {HomeComponent} from './Components/home/home.component';
 
 const routes: Routes = [
-  {path: 'eventSearch', component: EventSearchComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'weather', component: WeatherComponent},
-  {path: 'pastEvents', component: PastEventComponent},
-  {path: 'savedEvents', component: SavedEventsComponent},
-  {path: 'resultEvent', component: ResultEventComponent},
-  {path: '', redirectTo: '/eventSearch', pathMatch: 'full'}
+  
+  {path: 'body', component: BodyComponent, 
+    children: [
+      {path: 'eventSearch', component: EventSearchComponent},
+      {path: 'resultEvent', component: ResultEventComponent},
+      {path: '', redirectTo: 'eventSearch', pathMatch: 'full'}
+    ]
+  },
+  {path: 'login', component: HomeComponent},
+  { path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 
 @NgModule({

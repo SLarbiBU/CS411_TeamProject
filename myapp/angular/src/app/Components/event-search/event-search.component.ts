@@ -86,7 +86,7 @@ export class EventSearchComponent implements OnInit {
   //following tutorial for routing: https://angular.io/tutorial/toh-pt5
   public getEventDetails(event: Event) {
     this.eventDataService.changeEvent(event);
-    this.router.navigate(['resultEvent']);
+    this.router.navigate(['body/resultEvent']);
   }
 
   public getWeekday(date:any): string {

@@ -21,6 +21,8 @@ import { UberComponent} from './Components/uber/uber.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { HomeComponent } from './Components/home/home.component';
+import { BodyComponent } from './Components/body/body.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
     SavedEventsComponent,
     ResultEventComponent,
     DashboardComponent,
-    UberComponent
+    UberComponent,
+    HomeComponent,
+    BodyComponent
   ],
   imports: [
     BrowserModule,

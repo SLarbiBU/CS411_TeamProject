@@ -1,0 +1,30 @@
+<!--Tab set uses ngbootstrap - https://ng-bootstrap.github.io/#/components/tabs/examples -->
+
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+<ngb-tabset>
+  <ngb-tab title="Event Search">
+    <ng-template ngbTabContent>
+      <app-dashboard></app-dashboard>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Personal Profile">
+    <ng-template ngbTabContent>
+      <app-profile></app-profile>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Past Events">
+    <ng-template ngbTabContent>
+      <app-past-event></app-past-event>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Saved Events">
+    <ng-template ngbTabContent>
+      <app-saved-events></app-saved-events>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>

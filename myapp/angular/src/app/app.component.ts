@@ -7,7 +7,7 @@ import {UserService} from "./Services/user.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'The Event Selection App';
+  
 
   constructor(private userService: UserService){}
 
