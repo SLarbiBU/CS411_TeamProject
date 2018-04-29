@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/User');
+var User = require('../models/user-model');
 
 //route used to save the new user. request body contains the user object
 router.post("/saveUser", function(req, res, next){
@@ -23,6 +23,14 @@ router.post("/saveUser", function(req, res, next){
 router.get("/getUserByUsername/:username", function(req, res, next){
   //gets username from request parameters
   var username = req.params.username;
+  /*var username2 = "";
+  for (var i = 0; i < username.length; i++){
+    if (username[i] != '%' || username[i] != '2' || username[i] != '0'){
+      username2 = username2 + username[i];
+    }
+  }
+
+  console.log(username2);*/
 
   //gets the user by their username from the db
   User.getUserByUsername(function(err, user){
