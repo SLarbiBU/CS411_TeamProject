@@ -8,9 +8,10 @@ import {SavedEventsComponent} from  './Components/saved-events/saved-events.comp
 import {ResultEventComponent} from  './Components/result-event/result-event.component';
 import {BodyComponent} from './Components/body/body.component';
 import {HomeComponent} from './Components/home/home.component';
+import {RerouteComponent} from './Components/reroute/reroute.component';
 
 const routes: Routes = [
-  
+  {path: 'reroute/:username', component: RerouteComponent},
   {path: 'body', component: BodyComponent, 
     children: [
       {path: 'eventSearch', component: EventSearchComponent},

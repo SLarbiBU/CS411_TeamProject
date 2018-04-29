@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import {UserService} from "../../Services/user.service";
 
 @Component({
   selector: 'app-body',
@@ -7,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+              private userService: UserService) { }
 
   title = 'The Event Selection App';
+  sub: any;
+  username: string;
 
   ngOnInit() {
+    
   }
 
 }

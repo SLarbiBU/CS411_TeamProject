@@ -23,6 +23,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { HomeComponent } from './Components/home/home.component';
 import { BodyComponent } from './Components/body/body.component';
+import { RerouteComponent } from './Components/reroute/reroute.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { BodyComponent } from './Components/body/body.component';
     DashboardComponent,
     UberComponent,
     HomeComponent,
-    BodyComponent
+    BodyComponent,
+    RerouteComponent
   ],
   imports: [
     BrowserModule,

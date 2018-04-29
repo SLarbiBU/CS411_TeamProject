@@ -30,6 +30,7 @@ export class EventsService {
     url = url + "&q=" + kindEvent;
     url = url + "&start_date.keyword=" + ((isToday) ? "today" : (isTomorrow) ? "tomorrow" : (isWeekend) ? "this_weekend" : (isThisWeek) ? "this_week" : "next_week");
     url = url + "&location.address=" + location;
+    url = url + "&price=" + ((isFree) ? "free" : "paid");
     url = url + "&expand=venue,category";
     return this.http.get(url);
   }
