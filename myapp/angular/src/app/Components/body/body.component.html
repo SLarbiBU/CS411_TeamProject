@@ -1,30 +1,50 @@
 <!--Tab set uses ngbootstrap - https://ng-bootstrap.github.io/#/components/tabs/examples -->
 
+<!--
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
 </div>
+-->
 <li><a href="http://localhost:3000/auth/logout">Logout </a></li>
-<ngb-tabset>
-  <ngb-tab title="Event Search">
-    <ng-template ngbTabContent>
-      <app-dashboard></app-dashboard>
-    </ng-template>
-  </ngb-tab>
-  <ngb-tab title="Personal Profile">
-    <ng-template ngbTabContent>
-      <app-profile></app-profile>
-    </ng-template>
-  </ngb-tab>
-  <ngb-tab title="Attended Events">
-    <ng-template ngbTabContent>
-      <app-past-event></app-past-event>
-    </ng-template>
-  </ngb-tab>
-  <ngb-tab title="Bookmarked Events">
-    <ng-template ngbTabContent>
-      <app-saved-events></app-saved-events>
-    </ng-template>
-  </ngb-tab>
-</ngb-tabset>
+
+<header id="header">
+				
+				<a href="index.html" class="logo">Event Finder</a>
+				<nav class="right">
+					<a href="#" class="button alt">Log in</a>
+				</nav>
+			</header>
+
+
+<body>
+<div class = "wrap">
+
+  <ul class= "navbar">
+
+    <li><a href= '#'>Home</a></li>
+      
+    <li><a href="http://localhost:3000/auth/google">Event Search </a></li>
+
+    <li><a href= '#'>Attended Events</a></li>
+
+
+    <li><a href= '#'>Bookmarked Events</a></li>
+      
+    <li><a href ="#"> Profile</a></li>
+
+<!--    <li><a (click)="navWeather()" href= '#'>Weather Us</a></li>-->
+
+  </ul>
+
+</div>
+
+<router-outlet></router-outlet>
+
+
+</body>
+
+
+
+
