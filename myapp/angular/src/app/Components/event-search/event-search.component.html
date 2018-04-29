@@ -82,15 +82,11 @@
           <div class="card">
               <div class="card-body">
                   <strong>Event Title: </strong> <p>{{event.title}}</p>
-                  <strong>Event Description: </strong> <p>{{event.description}}</p>
-                  <strong>Event Category: </strong> <p>{{event.category}}</p>
                   <strong>Start Time: </strong> <p>{{getWeekday(event.startTime)}} {{getMonth(event.startTime)}} {{getDateNumber(event.startTime)}}, {{getYear(event.startTime)}}: {{getHours(event.startTime)}}:{{getMinutes(event.startTime)}} {{getDayTime(event.startTime)}}</p>
                   <strong>End Time: </strong> <p>{{getWeekday(event.endTime)}} {{getMonth(event.endTime)}} {{getDateNumber(event.endTime)}}, {{getYear(event.endTime)}}: {{getHours(event.endTime)}}:{{getMinutes(event.endTime)}} {{getDayTime(event.endTime)}}</p>
                   <strong>Venue: </strong> <p>{{event.venue}}</p>
-                  <strong>Address: </strong> <p>{{event.address}}</p>
                   <br>
-                  <a target="_blank" class="btn btn-info" [href]="event.url">Get More Info</a>
-                  <button type="button" class="btn btn-danger" (click)="getEventDetails(event)">Schedule Event</button>
+                  <button type="button" class="btn btn-danger" (click)="getEventDetails(event)">Get Details</button>
               </div>
           </div>
           <br><br>
