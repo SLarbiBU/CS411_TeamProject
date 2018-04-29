@@ -1,5 +1,47 @@
-extends layout
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        |
+        title OAuth
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        |
 
-block content
-  h1= title
-  p Welcome to #{title}
+    body
+        nav
+            ul.wrap
+                li
+
+                    li
+                        a(href='/auth/logout') Logout
+                    |
+                    li
+                        a(href='/auth/login') Login
+                    |
+                    li
+                        a(href='/') Homepage
+                    |
+                    li
+                        a(href='/profile') Profile
+        |
+        header
+            h1 411 Prj
+            |
+            h2 Homepage
+        |
+        main
+        |
+        section
+            p You are amazing
+            p
+                | Jade is a terse and simple
+                | templating language with a
+                | strong focus on performance
+                | and powerful features.
+        section
+            p You are amazing
+            p
+                | Jade is a terse and simple
+                | templating language with a
+                | strong focus on performance
+                | and powerful features.
