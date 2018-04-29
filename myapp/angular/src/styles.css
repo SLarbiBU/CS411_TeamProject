@@ -2,11 +2,7 @@
 
 @import "https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400|Pacifico";
 
-/*
-	Intensify by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-*/
+
 
 /* Reset */
 
@@ -377,9 +373,7 @@
 
 /* Header */
 
-body {
-		padding-top: 5em;
-	}
+
 
 	#header {
 		-moz-align-items: center;
