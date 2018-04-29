@@ -4,6 +4,7 @@ import {Event} from '../../Event';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import {EventDataService} from '../../Services/event-data.service';
+import {EventsService} from "../../Services/events.service";
 
 @Component({
   selector: 'app-result-event',
@@ -14,7 +15,8 @@ export class ResultEventComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private location: Location,
-    private eventDataService: EventDataService) { }
+    private eventDataService: EventDataService, 
+    private eventService: EventsService) { }
 
   event: Event;
 
@@ -26,6 +28,18 @@ export class ResultEventComponent implements OnInit {
     this.location.back();
   }
 
+  public bookEvent(){
+    this.event.saved = false;
+    this.eventService.saveEvent(this.event).subscribe(event => {
+      alert("You're set to attend the event");
+    });
+  }
+
+  public saveEvent(){
+    this.eventService.saveEvent(this.event).subscribe(event => {
+      alert("You Bookmarked the Event");
+    });
+  }
   public getWeekday(date:any): string {
     var eventDate = new Date(date);
     var n = eventDate.getDay();
