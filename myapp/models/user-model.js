@@ -34,3 +34,11 @@ module.exports.getUserByUsername = function(callback, username){
     const query = {username: username};
     User.findOne(query, callback);
 }
+
+//function to get the User object based on the username
+module.exports.deleteUser = function(callback, username){
+    console.log("in delete");
+    console.log(username);
+    const query = {username: username};
+    User.remove(query, callback);
+}
