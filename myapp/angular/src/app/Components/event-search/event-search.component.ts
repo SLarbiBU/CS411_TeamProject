@@ -71,7 +71,7 @@ export class EventSearchComponent implements OnInit {
           url: this.eventData.events[i].description.text,
           startTime: new Date(this.eventData.events[i].start.local),
           endTime: new Date(this.eventData.events[i].end.local),
-          saved: false,
+          saved: true,
           venue: this.eventData.events[i].venue.name,
           address: this.eventData.events[i].venue.address.localized_multi_line_address_display[0],
           longitude: this.eventData.events[i].venue.longitude,
@@ -92,6 +92,12 @@ export class EventSearchComponent implements OnInit {
   public getEventDetails(event: Event) {
     this.eventDataService.changeEvent(event);
     this.router.navigate(['body/resultEvent']);
+  }
+
+  public saveEvent(event: Event){
+    this.eventService.saveEvent(event).subscribe(event => {
+      alert("You Bookmarked the Event");
+    });
   }
 
   public getWeekday(date:any): string {

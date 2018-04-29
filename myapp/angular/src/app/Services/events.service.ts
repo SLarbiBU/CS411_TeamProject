@@ -1,7 +1,7 @@
 //following angular.io tutorial for http requests: https://angular.io/tutorial/toh-pt6
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Event} from '../Event';
 import { Observable } from 'rxjs/Observable';
 
@@ -32,6 +32,16 @@ export class EventsService {
     url = url + "&location.address=" + location;
     url = url + "&expand=venue,category";
     return this.http.get(url);
+  }
+
+  saveEvent(event: Event): Observable<Event>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+
+    return this.http.post<Event>("http://localhost:3000/events/saveEvent/", event, httpOptions);
   }
 
 }
