@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        |
+        title Login
+        link(rel='stylesheet', href='/stylesheets/style.css')
+
+    |
+    body
+        nav
+            ul
+                li
+                    a(href='/auth/logout') Logout
+                |
+                li
+                    a(href='/auth/login') Login
+                |
+                li
+                    a(href='/') Homepage
+        |
+        header
+            h1 Login using...
+        |
+        main
+            a.google-btn(href='/auth/google') Google+
+
