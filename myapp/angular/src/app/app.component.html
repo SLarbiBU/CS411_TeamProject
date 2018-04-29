@@ -1,38 +1,77 @@
 <!--Tab set uses ngbootstrap - https://ng-bootstrap.github.io/#/components/tabs/examples -->
 
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+
+<!DOCTYPE html>
+<head>
+  <title>Landing Page</title>
+  <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+</head>
+<body>
+<div class = "wrap">
+  <ul class= "navbar">
+    <li><a href= '#'>Home</a></li>
+    <li><a href= '#'>Profile</a></li>
+    <li><a href="http://localhost:3000/auth/google">Login </a></li>
+    <li><a href= '#'>Log Out</a></li>
+    <li><a (click)="navWeather()" href= '#'>Weather Us</a></li>
+  </ul>
+</div>
+<router-outlet></router-outlet>
+
+<section class = "intro">
+  <div class = "inner">
+    <div class = "content">
+      <h1 class ="tit"> Plan around your Budget</h1>
+      <a class="btn" href="#">Login</a>
+    </div>
+  </div>
+</section>
+
+<p>Welcome to our page! Plan your Outing with us anytime, anywhere! Simply Sign in,
+  setup your profile in no time, add your budget for the night and we will tell you
+  everything there is to do wherever you are with all the details you can possibly
+  think of. Whether you have alot of MONEYS or not we have great ideas for what you
+  can do on your outing.
+</p>
+
+<p class="e">
+  Enjoy!
+</p>
+
+<div class="footer">
+  <p>Footer (contact info, twitter,facebook,github, icons)</p>
 </div>
 
-<ngb-tabset>
-  <ngb-tab title="Event Search">
-    <ng-template ngbTabContent>
-      <app-event-search></app-event-search>
-    </ng-template>
-  </ngb-tab>
-  <ngb-tab title="Event Search Result">
-    <ng-template ngbTabContent>
-      <app-result-event></app-result-event>
-    </ng-template>
-  </ngb-tab>
-  <ngb-tab title="Personal Profile">
-    <ng-template ngbTabContent>
-      <app-profile></app-profile>
-    </ng-template>
-  </ngb-tab>
-  <ngb-tab title="Past Events">
-    <ng-template ngbTabContent>
-      <app-past-event></app-past-event>
-    </ng-template>
-  </ngb-tab>
-  <ngb-tab title="Saved Events">
-    <ng-template ngbTabContent>
-      <app-saved-events></app-saved-events>
-    </ng-template>
-  </ngb-tab>
-</ngb-tabset>
+</body>
+
+
+<!--<ngb-tabset>-->
+  <!--<ngb-tab title="Event Search">-->
+    <!--<ng-template ngbTabContent>-->
+      <!--<app-event-search></app-event-search>-->
+    <!--</ng-template>-->
+  <!--</ngb-tab>-->
+  <!--<ngb-tab title="Event Search Result">-->
+    <!--<ng-template ngbTabContent>-->
+      <!--<app-result-event></app-result-event>-->
+    <!--</ng-template>-->
+  <!--</ngb-tab>-->
+  <!--<ngb-tab title="Personal Profile">-->
+    <!--<ng-template ngbTabContent>-->
+      <!--<app-profile></app-profile>-->
+    <!--</ng-template>-->
+  <!--</ngb-tab>-->
+  <!--<ngb-tab title="Past Events">-->
+    <!--<ng-template ngbTabContent>-->
+      <!--<app-past-event></app-past-event>-->
+    <!--</ng-template>-->
+  <!--</ngb-tab>-->
+  <!--<ngb-tab title="Saved Events">-->
+    <!--<ng-template ngbTabContent>-->
+      <!--<app-saved-events></app-saved-events>-->
+    <!--</ng-template>-->
+  <!--</ngb-tab>-->
+<!--</ngb-tabset>-->
 
 
 
