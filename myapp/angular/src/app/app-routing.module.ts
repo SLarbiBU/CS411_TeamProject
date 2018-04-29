@@ -18,6 +18,7 @@ const routes: Routes = [
       {path: 'resultEvent', component: ResultEventComponent},
       {path: 'savedEvents', component: SavedEventsComponent},
       {path: 'pastEvents', component: PastEventComponent},
+      {path: "profile", component: ProfileComponent},
       {path: '', redirectTo: 'eventSearch', pathMatch: 'full'}
     ]
   },
