@@ -17,7 +17,8 @@ export class BodyComponent implements OnInit {
   username: string;
 
   ngOnInit() {
-    
+  
   }
+  
 
 }
