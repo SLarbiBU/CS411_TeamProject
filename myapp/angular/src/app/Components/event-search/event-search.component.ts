@@ -69,7 +69,7 @@ export class EventSearchComponent implements OnInit {
           username: this.username, 
           title: this.eventData.events[i].name.text,
           description: this.eventData.events[i].description.text,
-          url: this.eventData.events[i].description.text,
+          url: this.eventData.events[i].url,
           startTime: new Date(this.eventData.events[i].start.local),
           endTime: new Date(this.eventData.events[i].end.local),
           saved: true,
