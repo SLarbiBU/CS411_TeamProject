@@ -59,7 +59,7 @@
                     
 
 				<li>
-					<button (click)="getEvents()" class="btn btn-submit" type="submit" value="Submit">
+					<button id="myButton" (click)="getEvents()" class="btn btn-submit" type="submit" value="Submit">
 						<span>
 							Submit
 						</span>
@@ -77,7 +77,7 @@
 
  
   
-  <br><br><br>
+  <br><br><br><div id="myDiv">
 <div *ngIf="eventArray != []">
     <!-- following angular.io tutorial on displaying lists: https://angular.io/tutorial/toh-pt2 -->
     <div class="row justify-content-center" *ngFor="let event of eventArray">
@@ -96,7 +96,7 @@
           <br><br>
       </div>
     </div>
-</div>
+    </div></div>
 
 <!--===============================================================================================-->
 	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -104,13 +104,13 @@
 <!--===============================================================================================-->
 	<script src="/js/main.js"></script>
 
-
 <script>
-     $(document).ready(function(){
-        window.location.reload();
-    });
+$('#myButton').click(function() {
+   //optionally remove the 500 (which is time in milliseconds) of the
+   //scrolling animation to remove the animation and make it instant
+   $.scrollTo($('#myDiv'), 500);
+});
     </script>
-
 </body>
 </html>
 
