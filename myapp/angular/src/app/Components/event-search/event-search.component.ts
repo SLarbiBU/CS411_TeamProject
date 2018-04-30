@@ -97,7 +97,7 @@ export class EventSearchComponent implements OnInit {
 
   public saveEvent(event: Event){
     this.eventService.saveEvent(event).subscribe(event => {
-      alert("You Bookmarked the Event");
+      //alert("You Bookmarked the Event");
     });
   }
 

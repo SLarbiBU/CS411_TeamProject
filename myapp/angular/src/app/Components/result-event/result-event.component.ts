@@ -31,13 +31,13 @@ export class ResultEventComponent implements OnInit {
   public bookEvent(){
     this.event.saved = false;
     this.eventService.saveEvent(this.event).subscribe(event => {
-      alert("You're set to attend the event");
+      //alert("You're set to attend the event");
     });
   }
 
   public saveEvent(){
     this.eventService.saveEvent(this.event).subscribe(event => {
-      alert("You Bookmarked the Event");
+      //alert("You Bookmarked the Event");
     });
   }
   public getWeekday(date:any): string {

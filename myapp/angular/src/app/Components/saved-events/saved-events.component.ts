@@ -25,7 +25,7 @@ export class SavedEventsComponent implements OnInit {
 
   public deleteEvent(id, title: string){
     this.eventsService.deleteEvent(id).subscribe(event => {
-      alert("You have successfully removed the event from your saved events list!");
+      //alert("You have successfully removed the event from your saved events list!");
       for (var i = 0; i < this.events.length; i++){
         if (!this.events[i].title.localeCompare(title)){
           this.events.splice(i,1);
