@@ -27,7 +27,8 @@ export class ProfileComponent implements OnInit {
 
   public deleteUser(){
     this.userService.deleteUser(this.username).subscribe(user => {
-      console.log("User deleted");
+      this.user = null;
+      this.router.navigate(["login"]);
     })
   }
 

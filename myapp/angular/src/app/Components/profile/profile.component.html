@@ -1,9 +1,20 @@
-<div *ngIf="user != null">
-  <h1>{{user.username}}</h1>
-  <h1>{{user.address}}</h1>
-
-
-  <button (click)="deleteUser()">Delete User From DB</button>
+<div *ngIf="user != null" class="row justify-content-center">
+  <div class="col-md-4 text-center">
+      <br>
+      <h1>User Info</h1>
+      
+          <strong>Username: </strong><p>{{user.username}}</p>
+          <strong>Address: </strong><p>{{user.address}}</p>
+          <strong>City: </strong><p>{{user.city}}</p>
+          <strong>State: </strong><p>{{user.state}}</p>
+          <strong>Zipcode: </strong><p>{{user.zipcode}}</p>
+          <strong>Interests:</strong><br>
+          <ul *ngFor="let interest of user.interests">
+            <li>{{interest}}</li>
+          </ul>
+          <br><br>
+          <button class="btn btn-submit" (click)="deleteUser()">Delete Account</button>
+  </div>
 </div>
-
-<h1 *ngIf="user == null">No Profile Setup</h1>
+<br>
+<h1 class="text-center" *ngIf="user == null">No Profile Setup</h1>

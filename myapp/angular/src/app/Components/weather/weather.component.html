@@ -17,7 +17,6 @@
                         <strong>Temperature:</strong> <p>{{temp}} *F</p>
                         <strong>Max Temp:</strong> <p>{{maxTemp}} *F</p>
                         <strong>Min Temp:</strong> <p>{{minTemp}} *F</p>
-                        <strong>Humidity %:</strong> <p>{{humidity}}</p>
                         <strong>Wind Speed:</strong> <p>{{windSpeed}} MPH</p>
                     </div>
                   </div>
@@ -44,7 +43,6 @@
                   <div class="row justify-content-center">
                       <div class="col-md-2 text-center">
                         <strong>Max Temp:</strong> <p>{{forecastArray[forecastIndex].maxTemp}} *F</p>
-                        <strong>Humidity %:</strong> <p>{{forecastArray[forecastIndex].humidity}}</p>
                         <strong>Wind Speed:</strong> <p>{{forecastArray[forecastIndex].windSpeed}} MPH</p>
                         <strong>Date: </strong> <p>{{getWeekday(forecastArray[forecastIndex].time)}} {{getMonth(forecastArray[forecastIndex].time)}} {{getDateNumber(forecastArray[forecastIndex].time)}}: {{getHours(forecastArray[forecastIndex].time)}}:{{getMinutes(forecastArray[forecastIndex].time)}} {{getDayTime(forecastArray[forecastIndex].time)}}</p>
                       </div>
@@ -58,7 +56,6 @@
                             <strong>Temperature:</strong> <p>{{eventWeather.temp}} *F</p>
                             <strong>Min Temp:</strong> <p>{{eventWeather.minTemp}} *F</p>
                             <strong>Max Temp:</strong> <p>{{eventWeather.maxTemp}} *F</p>
-                            <strong>Humidity %:</strong> <p>{{eventWeather.humidity}}</p>
                             <strong>Wind Speed:</strong> <p>{{eventWeather.windSpeed}} MPH</p>
                             <strong>Time: </strong><p>{{getWeekday(eventWeather.time)}} {{getMonth(eventWeather.time)}} {{getDateNumber(eventWeather.time)}}: {{getHours(eventWeather.time)}}:{{getMinutes(eventWeather.time)}} {{getDayTime(eventWeather.time)}}</p>
                         </div>
