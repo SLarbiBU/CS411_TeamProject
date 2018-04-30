@@ -25,4 +25,8 @@ export class UserService {
     return this.http.put<User>("http://localhost:3000/users/updateUser", user);
   }
 
+  public deleteUser(username: string){
+    return this.http.delete<User>("http://localhost:3000/users/deleteUser/" + username);
+  }
+
 }

@@ -61,4 +61,17 @@ router.put("/updateUser/", function(req, res, next) {
   }, username, updatedUser, {});
 });
 
+router.delete("/deleteUser/:username", function(req, res, next){
+  var username = req.params.username;
+
+  User.deleteUser(function(err, user){
+    if (err){
+      res.json({success: false, error: err});
+    }
+    else{
+      res.json(user);
+    }
+  }, username);
+});
+
 module.exports = router;
