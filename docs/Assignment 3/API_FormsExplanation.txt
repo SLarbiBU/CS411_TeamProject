@@ -1,0 +1,6 @@
+For this part of the assignment, we created a node/express server with several different routes. These routes were used to fetch information
+from the OpenWeatherMap and Eventbrite APIs. For the weather page, both the weather forecast and the current weather for the supplied city
+was displayed. The routes are under weather.js. Later in the project, these routes were updated to take the latitude and longitude of the 
+location instead of the city name. 
+The eventbrite page allows the user to pick how much money they want to spend on an event and then fetches different events which fit that
+criteria from the event brite api. The routes used to call the api are in pricePoint.js.

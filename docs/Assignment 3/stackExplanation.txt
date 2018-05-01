@@ -9,3 +9,7 @@ framework would be tough to fit into the schedule. Furthermore, Node/Express hav
 gaps in our knowledge. Finally, we decided it would be best to use the same language on the backend and frontend. We figured that it would be easier
 for the backend and front end to communicate with each other if they were written in the same language. Furthermore, using one language would reduce
 how much time would be spent on reviewing syntax and things of that nature. 
+For front end, we chose to use Angular 5. For the frontend, we wanted to use some sort of front end javascript framework to make the manipulation
+and display of data easier. We ended up choosing between Angular and React, largely due to their popularity in the field and the amount
+of resources available online. We chose to use Angular 5 because some people had previous experience working with Angular, so the learning 
+curve would not be as steep. 

@@ -31,10 +31,10 @@ export class UberComponent implements OnInit {
 
 
 
-  Address: string;
-  City: string;
-  State: string;
-  Zip_Code: string;
+  Address: String;
+  City: String;
+  State: String;
+  Zip_Code: String;
 
   
   truthValue = false;

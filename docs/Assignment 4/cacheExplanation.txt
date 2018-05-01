@@ -1,0 +1,11 @@
+For the caching requirement of the project, we used our backend MongoDB database to store event data that the user "bookmarked". 
+After entering the search criteria in the search page, the eventbrite API is called and a long list of different events are returned and 
+subsequently displayed on the screen for the user to view. If the user decides that they want to save the information about the event, 
+they can click a bookmark button, which will cause that event info to be saved in a document in the events collection of the database. 
+When the user returns to the website another time, they will be able to view information about their favorite events by accessing this info
+from the database instead of making a new search and calling the eventbrite api again. 
+Initially, we planned to also cache the favorite categories and their corresponding eventbrite API codes. We wanted to fetch all the categories
+and their codes from eventbrite and have the user select their favorite categories. These favorites would be saved and displayed 
+when the user first tried to search for events. If the user decided they wanted to see all the categories, then the eventbrite api would 
+be called again. This feature was not ever included in the final application, but the MongoDB schema and necessary routes are still included
+in the repository. 
