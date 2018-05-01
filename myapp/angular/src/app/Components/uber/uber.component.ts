@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {UberService} from "../../Services/uber-service.service";
 import {User} from "../../User";
+import {UserService} from "../../Services/user.service";
 
 @Component({
   selector: 'app-uber',
@@ -9,7 +10,8 @@ import {User} from "../../User";
 })
 export class UberComponent implements OnInit {
 
-  constructor(private uberService: UberService) {
+  constructor(private uberService: UberService,
+              private userService: UserService) {
   }
 
   @Input() endLongitude: string;// = "-73.694143";
@@ -30,6 +32,9 @@ export class UberComponent implements OnInit {
   City: string = "Boston";
   State: string = "MA";
   Zip_Code: string = "02215";
+
+  username: string;
+  user: User = null;
 
   // @Input() Address: string;
   // @Input() City: string;
@@ -76,6 +81,10 @@ export class UberComponent implements OnInit {
 
 
   ngOnInit() {
+    this.username = this.userService.getUsername();
+    this.userService.getUserByUsername(this.username).subscribe(user => {
+      this.user = user;
+    });
     this.UberEstimates();
   }
 }
