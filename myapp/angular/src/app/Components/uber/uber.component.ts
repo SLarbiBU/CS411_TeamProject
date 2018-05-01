@@ -14,37 +14,27 @@ export class UberComponent implements OnInit {
               private userService: UserService) {
   }
 
-  @Input() endLongitude: string;// = "-73.694143";
-  @Input() endLatitude: string;// = "40.84100560688397";
+  @Input() endLongitude: string;
+  @Input() endLatitude: string;
 
-  // startLongitude: string = "4.91316489999997";
-  // startLatitude: string = "52.352276";
+
 
   Estimates: any;
   uberData: any;
 
-  // Address: string = "22 Knoll Lane";
-  // City: string = "Glen Head";
-  // State: string = "NY";
-  // Zip_Code: string = "11545";
 
-  Address: string = "700 Commonwealth Avenue";
-  City: string = "Boston";
-  State: string = "MA";
-  Zip_Code: string = "02215";
+
+
 
   username: string;
   user: User = null;
 
-  // @Input() Address: string;
-  // @Input() City: string;
-  // @Input() State: string;
-  // @Input() Zip_Code: string;
 
-  // Address: string = User.address;
-  // City: string = User[0].city;
-  // State: string = User[0].state;
-  // Zip_Code: string = User[0].zipcode;
+
+  Address: string;
+  City: string;
+  State: string;
+  Zip_Code: string;
 
   
   truthValue = false;
@@ -80,12 +70,17 @@ export class UberComponent implements OnInit {
   }
 
 
-  ngOnInit() {
+ngOnInit() {
     this.username = this.userService.getUsername();
     this.userService.getUserByUsername(this.username).subscribe(user => {
       this.user = user;
+      this.Address = this.user.address;
+      this.City = this.user.city;
+      this.State = this.user.state;
+      this.Zip_Code = this.user.zipcode;
+      this.UberEstimates();
     });
-    this.UberEstimates();
+
   }
 }
 
