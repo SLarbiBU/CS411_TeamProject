@@ -1,19 +1,44 @@
-<!--<p>-->
-  <!--uber works!-->
-<!--</p>-->
-
+<body>
 <div class="row justify-content-center">
   <div class="col-md-8">
     <div class="card">
       <div class="card-body">
-        <div class = "row justify-content-center">
-          <strong>Uber Estimates:</strong> <p>&ensp;{{Estimates}}</p>
-          <!--<button (click)="UberEstimates()" class="btn btn-primary">Current Weather</button>-->
-        </div>
-        <br><br>
+        <div>
 
+          <div>
+
+            <form>
+              <div>
+                <input style= "width: 400px" [(ngModel)]= "Address" class="input100" type="text" name="Address" placeholder="Address" ><br>
+                <input style= "width: 400px" [(ngModel)]="City" class="input100" type="text" name="City" placeholder="City"><br>
+                <input style= "width: 400px" [(ngModel)]="State" class="input100" type="text" name="State" placeholder="State"><br>
+                <input style= "width: 400px" [(ngModel)]="Zip_Code" class="input100" type="text" name="Zip_Code" placeholder="zip Code"><br>
+
+
+              </div>
+              <br>
+
+
+
+              <button (click)="UberEstimates()" class="btn btn-submit" type="submit">Get Estimates</button>
+              <button (click)="refresh()" class="btn btn-submit" type="submit">Refresh</button>
+
+            </form>
+          </div>
+
+          <div style=" position:relative; left:650px; top:-200px">
+            <h2> Uber Estimates: </h2><p *ngIf= "truthValue == true"><font size ="4"> &emsp;{{Estimates}}</font></p>
+            <br>
+
+          </div>
+
+
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+</body>
+
 
