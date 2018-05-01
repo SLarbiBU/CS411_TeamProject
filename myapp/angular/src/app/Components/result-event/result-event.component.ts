@@ -36,6 +36,7 @@ export class ResultEventComponent implements OnInit {
   }
 
   public saveEvent(){
+    this.event.saved = true;
     this.eventService.saveEvent(this.event).subscribe(event => {
       //alert("You Bookmarked the Event");
     });
