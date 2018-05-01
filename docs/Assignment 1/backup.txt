@@ -2,7 +2,7 @@
 Backup Idea: Bucket List Tracker
 
 For this project, we would create a web app that allows the user to create an interactive bucket list for the places they would like to travel. 
-The user would input the location of a country/city/landmark that they would like to see. and they would then be presented with different options
+The user would input the location of a country/city/landmark that they would like to see. They would then be presented with different options
 upon adding the location. Some options would include an interface to look at available flights and transportation, an interface to look at the 
 current weather/climate of the area, and an interface to view public pictures/posts from social media relating to the location. Other possible features
 would include a live map of all the different locations on the list, a google calendar to look at for scheduling a trip, a wikipedia interface to 
