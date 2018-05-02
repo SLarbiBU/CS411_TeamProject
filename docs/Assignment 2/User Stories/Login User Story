@@ -1,8 +1,6 @@
 User Story 2: Login/Authentication
 
-Upon reaching the home page of the website, the user will be presented with basic information about the website. This info will be about 
-the utility of the site and will inform the new visitor about how to use the site. The user will also be presented with a login button. 
-Upon clicking this button, the user will be redirected to a twitter authentication page where they are prompted to enter their credentials for 
-twitter. If the credentials are incorrect, the user will be redirected back to the same page and an error message will be displayed to 
+Upon reaching the home page of the website, the user will be presented with basic login functionality.The user will be presented with a login button. After passing oauth the site will inform the new visitor about signing up if they are not already.  
+Upon submitting their online profile, the user will be redirected to a event page where they are prompted to enter their interest. If the credentials are incorrect, the user will be redirected back to the same page and an error message will be displayed to 
 indicate incorrect credentials. If the login is successful, the user will be redirected to the user home page, which will present basic information
-about the user and provide them options such as planning a new night out or viewing the weather. 
+about events depending on whether they have much money to spend or not and provide them options such as planning a new night out or viewing the weather. 
