@@ -4,7 +4,7 @@
 
 Web Application that given a price point provides things to do (events, dining, etc.)
 
-Potential APIs: Eventbrite, Yelp, Weather, Waze/Uber?, Twitter, MBTA
+Potential APIs: Eventbrite, Yelp, Weather, Uber, Google
 
 ## Plan B:
 
