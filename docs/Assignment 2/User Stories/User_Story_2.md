@@ -1,4 +1,4 @@
-User Story #3
+User Story #2
 
 As a logged-in user, I want to find recommendations on what I can do within my certain budget. 
 
