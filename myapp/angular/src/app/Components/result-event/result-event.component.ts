@@ -24,6 +24,7 @@ export class ResultEventComponent implements OnInit {
     this.eventDataService.currentEvent.subscribe(event => this.event = event)
   }
 
+  //followed https://angular.io/tutorial/toh-pt5 for routing backwards to previous component
   public goBack(): void {
     this.location.back();
   }
