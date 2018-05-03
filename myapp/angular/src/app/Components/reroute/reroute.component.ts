@@ -28,6 +28,7 @@ export class RerouteComponent implements OnInit {
 
   interestsArray: [String] = [""];
 
+  //followed https://angular-2-training-book.rangle.io/handout/routing/routeparams.html for reading route parameters
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.username = params['username'];
