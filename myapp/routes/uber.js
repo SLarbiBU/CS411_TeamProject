@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 var config = require("../config");
 
-
 const request = require("request");
 /* GET home page. */
 router.get('/', function(req, res, next) {
