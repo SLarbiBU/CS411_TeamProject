@@ -4,3 +4,4 @@ was displayed. The routes are under weather.js. Later in the project, these rout
 location instead of the city name. 
 The eventbrite page allows the user to pick how much money they want to spend on an event and then fetches different events which fit that
 criteria from the event brite api. The routes used to call the api are in pricePoint.js.
+We added the Uber API soon after we got the first two API's working, using event location from the Eventbrite API as parameters for the Uber API. 
