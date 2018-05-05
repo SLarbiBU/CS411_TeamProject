@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+var config = require("../config");
 
 
 const request = require("request");
@@ -59,7 +60,7 @@ router.get('/estimates/:Address/:City/:State/:Zip_Code/:end_latitude/:end_longit
                 {
                     'Postman-Token': '226484f6-f818-4836-a03b-1c5099dde428',
                     'Cache-Control': 'no-cache',
-                    Authorization: 'Bearer KA.eyJ2ZXJzaW9uIjoyLCJpZCI6ImZwVkp4T3U1VDdDcSt6UkxTcDVvNkE9PSIsImV4cGlyZXNfYXQiOjE1Mjc1MjY5MTcsInBpcGVsaW5lX2tleV9pZCI6Ik1RPT0iLCJwaXBlbGluZV9pZCI6MX0.ew7QdHJS-PPv3SryfLahWC3INiHC9bkOzzRcrzqzm5w'                }
+                    Authorization: config.uberAuth}
         };
 
         request(options, function (error, response, body) {
